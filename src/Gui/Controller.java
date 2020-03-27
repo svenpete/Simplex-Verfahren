@@ -1,10 +1,7 @@
 package Gui;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 
 public class Controller {
@@ -31,7 +28,9 @@ public class Controller {
         TableColumn firstColumn = new TableColumn("x1");
         TableColumn secondColumn = new TableColumn("x2");
         table.getColumns().addAll(firstColumn, secondColumn);
+
     }
+
     private static int checkInput(CharSequence input)
     {
         Integer number = Integer.parseInt(input.toString());        //Variante von Consti

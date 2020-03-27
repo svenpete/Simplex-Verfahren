@@ -57,7 +57,7 @@
                                     <Label text="Variablen" GridPane.columnIndex="1" />
                                     <TextField fx:id="NB" GridPane.rowIndex="1" />
                                     <TextField fx:id="Variablen" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <Button fx:id="sRow" mnemonicParsing="false" text="Submit" GridPane.rowIndex="2" />
+                                    <Button fx:id="sRow" mnemonicParsing="false" text="Submit" GridPane.rowIndex="2"  />
                                     <Button fx:id="sColumn" mnemonicParsing="false" onAction="#changeColumn" text="Submit" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                  </children>
                               </GridPane>
