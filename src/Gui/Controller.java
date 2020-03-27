@@ -34,7 +34,8 @@ public class Controller {
     }
     private static int checkInput(CharSequence input)
     {
-        Integer number = Integer.parseInt(input,0,input.length(),10);
+        Integer number = Integer.parseInt(input.toString());        //Variante von Consti
+        //Integer number = Integer.parseInt(input,0,input.length(),10); Variante von Sven
         return number;
     }
 
