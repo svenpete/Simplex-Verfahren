@@ -24,11 +24,31 @@ public class Controller {
     @FXML
     void changeColumn(ActionEvent event)
     {
-        checkInput(Variablen.getCharacters());
-        TableColumn firstColumn = new TableColumn("x1");
-        TableColumn secondColumn = new TableColumn("x2");
-        table.getColumns().addAll(firstColumn, secondColumn);
+        table.getColumns().clear();
+        int number = checkInput(Variablen.getCharacters());
+        TableColumn firstColumn     =   new TableColumn("x1");
+        TableColumn secondColumn    =   new TableColumn("x2");
+        TableColumn thirdColumn     =   new TableColumn("x3");
+        TableColumn fourthColumn    =   new TableColumn("x4");
 
+        switch (number)
+        {
+            case 1:
+                table.getColumns().addAll(firstColumn);
+                break;
+
+                case 2:
+                table.getColumns().addAll(firstColumn,secondColumn);
+                break;
+
+            case 3:
+                table.getColumns().addAll(firstColumn,secondColumn,thirdColumn);
+                break;
+
+            case 4:
+                table.getColumns().addAll(firstColumn,secondColumn,thirdColumn,fourthColumn);
+                break;
+        }
     }
 
     private static int checkInput(CharSequence input)
