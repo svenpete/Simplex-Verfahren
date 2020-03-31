@@ -1,4 +1,5 @@
 package Gui;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -26,10 +27,16 @@ public class Controller {
     {
         table.getColumns().clear();
         int number = checkInput(Variablen.getCharacters());
-        TableColumn firstColumn     =   new TableColumn("x1");
-        TableColumn secondColumn    =   new TableColumn("x2");
-        TableColumn thirdColumn     =   new TableColumn("x3");
-        TableColumn fourthColumn    =   new TableColumn("x4");
+
+
+        //Creating the Columns in a stupid way
+            TableColumn firstColumn = new TableColumn("x1");
+            TableColumn secondColumn = new TableColumn("x2");
+            TableColumn thirdColumn = new TableColumn("x3");
+            TableColumn fourthColumn = new TableColumn("x4");
+            TableColumn fifthColumn = new TableColumn("x5");
+
+
 
         switch (number)
         {
@@ -48,6 +55,10 @@ public class Controller {
             case 4:
                 table.getColumns().addAll(firstColumn,secondColumn,thirdColumn,fourthColumn);
                 break;
+
+            case 5:
+                table.getColumns().addAll(firstColumn,secondColumn,thirdColumn,fourthColumn,fifthColumn);
+                break;
         }
     }
 
@@ -57,6 +68,4 @@ public class Controller {
         //Integer number = Integer.parseInt(input,0,input.length(),10); Variante von Sven
         return number;
     }
-
-
 }
