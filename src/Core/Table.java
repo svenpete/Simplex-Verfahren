@@ -6,14 +6,22 @@ public class Table
 {
     private int columns;
     private int rows;
+    private int[][] tabelle;
 
 
-    private Table(int rows,int columns)
+    /**
+     *
+     * @param rows represent the Constraints
+     * @param columns represent the variables
+     *
+     */
+    public Table(int rows,int columns)
     {
         this.columns = columns;
         this.rows = rows;
 
     }
+
 
     private int[][] createTableArray(int rows,int columns)
     {
@@ -22,7 +30,7 @@ public class Table
         return table;
     }
 
-    public static void createTable()
+    public void createTable()
     {
         Scanner NBScanner = new Scanner(System.in);
         Scanner VBScanner = new Scanner(System.in);
@@ -35,9 +43,17 @@ public class Table
         int variabels = VBScanner.nextInt();
 
         Table table = new Table(constraint,variabels);
-        int[][] table1 = table.createTableArray(constraint,variabels);
-        System.out.println("Es gibt " +(table1.length+1)+" Nebenbedingungen. Es gibt " + (table1[0].length+1) +" Variabeln.");
+        tabelle = table.createTableArray(constraint,variabels);
+        System.out.println("Es gibt " +(tabelle.length+1)+" Nebenbedingungen. Es gibt " + (tabelle[0].length+1) +" Variabeln.");
     }
+
+    public void fillTable()
+    {
+
+
+    }
+
+
 
 
 

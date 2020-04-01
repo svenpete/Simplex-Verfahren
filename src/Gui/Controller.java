@@ -1,17 +1,26 @@
 package Gui;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class Controller {
+
+public class Controller implements Initializable {
+
+    ObservableList<Integer> constraints = FXCollections.observableArrayList(1,2,3,4,5,6);
+    ObservableList<Integer> variables = FXCollections.observableArrayList(1,2,3,4,5,6);
 
     @FXML
-    private TextField NB;
+    private ComboBox NB;
 
     @FXML
-    private TextField Variablen;
+    private ComboBox Variablen;
 
     @FXML
     private Button sRow;
@@ -26,46 +35,80 @@ public class Controller {
     void changeColumn(ActionEvent event)
     {
         table.getColumns().clear();
-        int number = checkInput(Variablen.getCharacters());
+        int number = checkVariablesInput();
 
-
-        //Creating the Columns in a stupid way
-            TableColumn firstColumn = new TableColumn("x1");
-            TableColumn secondColumn = new TableColumn("x2");
-            TableColumn thirdColumn = new TableColumn("x3");
-            TableColumn fourthColumn = new TableColumn("x4");
-            TableColumn fifthColumn = new TableColumn("x5");
+        TableColumn firstColumn = new TableColumn("Nebenbedingungen/Variabeln");
+        TableColumn secondColumn = new TableColumn("x1");
+        TableColumn thirdColumn = new TableColumn("x2");
+        TableColumn fourthColumn = new TableColumn("x3");
+        TableColumn fifthColumn = new TableColumn("x4");
+        TableColumn sixthColumn = new TableColumn("x5");
+        TableColumn seventhColumn = new TableColumn("x6");
 
 
 
         switch (number)
         {
             case 1:
-                table.getColumns().addAll(firstColumn);
-                break;
-
-                case 2:
                 table.getColumns().addAll(firstColumn,secondColumn);
                 break;
 
+
+            case 2:
+                table.getColumns().addAll(firstColumn,secondColumn,
+                        thirdColumn);
+                break;
+
+
             case 3:
-                table.getColumns().addAll(firstColumn,secondColumn,thirdColumn);
+                table.getColumns().addAll(firstColumn,secondColumn,
+                        thirdColumn,fourthColumn);
                 break;
 
             case 4:
-                table.getColumns().addAll(firstColumn,secondColumn,thirdColumn,fourthColumn);
+                table.getColumns().addAll(firstColumn,secondColumn,
+                        thirdColumn,fourthColumn,fifthColumn);
                 break;
 
             case 5:
-                table.getColumns().addAll(firstColumn,secondColumn,thirdColumn,fourthColumn,fifthColumn);
+                table.getColumns().addAll(firstColumn,secondColumn,
+                        thirdColumn,fourthColumn,
+                        fifthColumn,sixthColumn);
                 break;
+
+            case 6:
+                table.getColumns().addAll(firstColumn,secondColumn,
+                        thirdColumn,fourthColumn,
+                        fifthColumn,sixthColumn,seventhColumn);
+                break;
+
         }
     }
 
-    private static int checkInput(CharSequence input)
+
+
+    /**
+     * Called to initialize a controller after its root element has been
+     * completely processed.
+     *
+     * @param location  The location used to resolve relative paths for the root object, or
+     *                  <tt>null</tt> if the location is not known.
+     * @param resources The resources used to localize the root object, or <tt>null</tt> if
+     */
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        NB.setValue(1);
+        NB.setItems(constraints);
+
+        Variablen.setValue(1);
+        Variablen.setItems(variables);
+    }
+
+
+    @FXML
+    private int checkVariablesInput()
     {
-        Integer number = Integer.parseInt(input.toString());        //Variante von Consti
-        //Integer number = Integer.parseInt(input,0,input.length(),10); Variante von Sven
-        return number;
+      Integer number = (Integer) Variablen.getValue();
+      return number;
     }
 }
