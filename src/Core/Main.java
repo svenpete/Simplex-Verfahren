@@ -9,6 +9,6 @@ public class Main
         Table table = new Table(2,3);
         table.createTable();
         table.fillTable();
-
+        table.printTable();
     }
 }
