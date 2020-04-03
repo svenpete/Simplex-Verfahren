@@ -29,7 +29,7 @@ public class Controller implements Initializable {
     private Button sColumn;
 
     @FXML
-    private TableView<?> table;
+    private TableView<Gui.Variablen> table;
 
     @FXML
     void changeColumn(ActionEvent event)
@@ -85,6 +85,7 @@ public class Controller implements Initializable {
         }
     }
 
+        private ObservableList<Variablen> vb = FXCollections.observableArrayList();
 
 
     /**
@@ -96,13 +97,19 @@ public class Controller implements Initializable {
      * @param resources The resources used to localize the root object, or <tt>null</tt> if
      */
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources)
+    {
         NB.setValue(1);
         NB.setItems(constraints);
 
         Variablen.setValue(1);
         Variablen.setItems(variables);
+
+        vb.add(new Variablen("y2"));
+        table.setItems(vb);
     }
+
+
 
 
     @FXML
@@ -111,4 +118,5 @@ public class Controller implements Initializable {
       Integer number = (Integer) Variablen.getValue();
       return number;
     }
+
 }

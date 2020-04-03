@@ -32,4 +32,5 @@ public class Nebenbedingungen
         this.d4=d4;
 
     }
+
 }
