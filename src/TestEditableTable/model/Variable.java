@@ -17,10 +17,7 @@ public class Variable
         this.update = update;
 
         update.setOnAction(e -> {
-
-
-
-        ObservableList<Variable> variables = Controller.table_info_2.getSelectionModel().getSelectedItems();
+            ObservableList<Variable> variables = Controller.table_info_2.getSelectionModel().getSelectedItems();
             for (Variable variable : Controller.data_table)
             {
                 if(variable.getUpdate() == update)
@@ -32,7 +29,8 @@ public class Variable
 
                 }
             }
-        });
+        }
+        );
     }
 
     public String getId() {

@@ -15,15 +15,14 @@ public class Main extends Application
     }
 
     @Override
-    public void start(Stage stage) throws Exception
-    {
+    public void start(Stage stage) throws Exception {
         stage.setTitle("Simplex");
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("simplex.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.show();  // Stage alles drumherum
-
+        System.out.println("JavaFX version: " + System.getProperty("javafx.runtime.version"));
+        stage.show();
     }
 }

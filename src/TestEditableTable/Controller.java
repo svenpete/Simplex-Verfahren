@@ -41,7 +41,8 @@ public class Controller implements Initializable
 
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle)
+    public void initialize
+            (URL url, ResourceBundle resourceBundle)
     {
         table_info_2 = table_info;
         initTable();
@@ -54,37 +55,59 @@ public class Controller implements Initializable
     }
     // need to be changed to dynmaic
     private void initCols() {
-        col_x1.setCellValueFactory(new PropertyValueFactory<>("x1"));
-        col_x2.setCellValueFactory(new PropertyValueFactory<>("x2"));
-        col_x3.setCellValueFactory(new PropertyValueFactory<>("x3"));
-        col_x4.setCellValueFactory(new PropertyValueFactory<>("x4"));
-        col_update.setCellValueFactory(new PropertyValueFactory<>("update"));
+
+
+        col_x1.setCellValueFactory
+                (new PropertyValueFactory<>("x1"));
+        col_x2.setCellValueFactory
+                (new PropertyValueFactory<>("x2"));
+        col_x3.setCellValueFactory
+                (new PropertyValueFactory<>("x3"));
+        col_x4.setCellValueFactory
+                (new PropertyValueFactory<>("x4"));
+        col_update.setCellValueFactory
+                (new PropertyValueFactory<>("update"));
 
         editableCols();
     }
-    // here we need a concept which decides wether the dynamic input of cols is editable for every new column
+    // here we need a concept which decides
+    // wether the dynamic input of cols is
+    // editable for every new column
     private void editableCols() {
-        col_x1.setCellFactory(TextFieldTableCell.forTableColumn());
+        col_x1.setCellFactory
+                (TextFieldTableCell.forTableColumn());
 
-        col_x1.setOnEditCommit(e -> {
-            e.getTableView().getItems().get(e.getTablePosition().getRow()).setId(e.getNewValue());
+        col_x1.setOnEditCommit(e ->
+        {
+            e.getTableView().getItems().get(e.
+                    getTablePosition().
+                    getRow()).setId(e.getNewValue());
         });
-        col_x2.setCellFactory(TextFieldTableCell.forTableColumn());
+        col_x2.setCellFactory(TextFieldTableCell.
+                forTableColumn());
 
         col_x2.setOnEditCommit(e -> {
-            e.getTableView().getItems().get(e.getTablePosition().getRow()).setX2(e.getNewValue());
+            e.getTableView().getItems().get(e.
+                    getTablePosition().
+                    getRow()).setX2(e.getNewValue());
         });
 
-        col_x3.setCellFactory(TextFieldTableCell.forTableColumn());
+        col_x3.setCellFactory(TextFieldTableCell.
+                forTableColumn());
 
         col_x3.setOnEditCommit(e -> {
-            e.getTableView().getItems().get(e.getTablePosition().getRow()).setX3(e.getNewValue());
+            e.getTableView().getItems().get(e.
+                    getTablePosition().
+                    getRow()).setX3(e.getNewValue());
         });
 
-        col_x4.setCellFactory(TextFieldTableCell.forTableColumn());
+        col_x4.setCellFactory(TextFieldTableCell.
+                forTableColumn());
 
         col_x4.setOnEditCommit(e -> {
-            e.getTableView().getItems().get(e.getTablePosition().getRow()).setX4(e.getNewValue());
+            e.getTableView().getItems().get(e.
+                    getTablePosition().
+                    getRow()).setX4(e.getNewValue());
         });
 
         table_info.setEditable(true);
@@ -97,8 +120,10 @@ public class Controller implements Initializable
 
         for (int i = 0; i < 7; i++)
         {
-            data_table.add(new Variable( String.valueOf(i),
-                    "test" + i, "test" + i, "test" + i, new Button("update")));
+            data_table.add
+                    (new Variable( String.valueOf(i),
+                    "test" + i, "test" + i, "test" + i,
+                            new Button("update")));
 
         }
         table_info.setItems(data_table);

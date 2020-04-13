@@ -13,8 +13,10 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
-    ObservableList<Integer> constraints = FXCollections.observableArrayList(1,2,3,4,5,6);
-    ObservableList<Integer> variables = FXCollections.observableArrayList(1,2,3,4,5,6);
+    ObservableList<Integer> constraints =
+            FXCollections.observableArrayList(1,2,3,4,5,6);
+    ObservableList<Integer> variables =
+            FXCollections.observableArrayList(1,2,3,4,5,6);
 
     @FXML
     private ComboBox NB;
@@ -29,7 +31,9 @@ public class Controller implements Initializable {
     private Button sColumn;
 
     @FXML
-    private TableView<Gui.Variablen> table;
+    private TableView<Tableview.model.Variable> table;
+
+    public static TableView<Tableview.model.Variable> tableView;
 
     @FXML
     void changeColumn(ActionEvent event)
@@ -85,29 +89,31 @@ public class Controller implements Initializable {
         }
     }
 
-        private ObservableList<Variablen> vb = FXCollections.observableArrayList();
+
 
 
     /**
      * Called to initialize a controller after its root element has been
      * completely processed.
      *
-     * @param location  The location used to resolve relative paths for the root object, or
+     * @param location  The location used to resolve relative paths
+     *                  for the root object, or
      *                  <tt>null</tt> if the location is not known.
-     * @param resources The resources used to localize the root object, or <tt>null</tt> if
+     * @param resources The resources used to localize the root object,
+     *                  or <tt>null</tt> if
      */
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
+
         NB.setValue(1);
         NB.setItems(constraints);
 
         Variablen.setValue(1);
         Variablen.setItems(variables);
 
-        vb.add(new Variablen("y2"));
-        table.setItems(vb);
     }
+
 
 
 

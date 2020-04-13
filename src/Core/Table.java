@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Table
 {
-    private int columns;
-    private int rows;
+    private int columns, rows;
+    private boolean solutionIsUnbounded = false;
     private int[][] tabelle;
 
 
@@ -48,41 +48,68 @@ public class Table
 
     }
 
-    public void fillTable()
-    {
-        for (int i=0;i<tabelle.length;i++)
-        {
-            for (int j = 0; j <tabelle[i].length; j++)
-            {
-                System.out.println("Geben Sie den Wert in der Tabelle für ["+ i+"]["+j+"] ein ");
+    public void fillTable() {
+        for (int i = 0; i < tabelle.length; i++) {
+            for (int j = 0; j < tabelle[i].length; j++) {
+                System.out.println("Geben Sie den Wert in der Tabelle für [" + i + "][" + j + "] ein ");
 
                 Scanner scanner = new Scanner(System.in);
 
                 tabelle[i][j] = scanner.nextInt();
 
-                System.out.println("Der Wert in Tabelle["+i+"]["+j+"] ist:"+tabelle[i][j]);
+                System.out.println("Der Wert in Tabelle[" + i + "][" + j + "] ist:" + tabelle[i][j]);
+
             }
         }
     }
 
+
+    public int[][] getTabelle() {
+        return tabelle;
+    }
+
+    public int getRows() {
+        return rows;
+    }
+
+    public int getColumns() {
+        return columns;
+    }
 
     public void printTable()
-    {
-        for (int i=0;i<tabelle.length;i++)
         {
-            for( int j = 0; j<tabelle[i].length;j++)
+            switch (tabelle.length)
             {
-                System.out.print(tabelle[i][j]+"|");
-                if (tabelle[i].length-1==j)
+                case 1:
+                    System.out.println("Variabeln:\t VB1");
+                    break;
+
+                case 2:
+                    System.out.println("Variabeln:\t  VB1|VB2");
+                    break;
+
+                case 3:
+                    System.out.println("Variabeln:\t  VB1|VB2|VB3");
+                    break;
+
+                case 4:
+                    System.out.println("Variabeln:\t  VB1|VB2|VB3|VB4");
+                    break;
+            }
+            for (int i=0;i<tabelle.length;i++)
+            {
+                System.out.print("NB" +(i+1)+":\t \t\t");
+                for( int j = 0; j<tabelle[i].length;j++)
                 {
-                    System.out.print("\n");
+                    System.out.print(tabelle[i][j] + "|");
+                    if (tabelle[i].length-1==j)
+                    {
+                        System.out.print("\n");
+                    }
                 }
             }
+
         }
-    }
-
-
-
-
-
 }
+
+
