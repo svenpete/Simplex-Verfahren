@@ -15,14 +15,21 @@ public class Calculation {
         //checking if solution is optimal
         if (checkIfOptimal(table))
         {
-            return ERROR.IS_OPTIMAL;
+            return ERROR.STRING_IS_OPTIMAL;
         }
 
         //step 2
-        //finding the pivot
+        //finding the pivot column
+        PivotStep step = new PivotStep();
+        int pivotColumn =  step.findPivotColumn(table);
+        System.out.println("Pivot Column:   "+pivotColumn);
+
+        //step3
+        //finding the pivot element in the pivot column
 
 
 
+        return ERROR.STRING_NOT_OPTIMAL;
     }
 
 
@@ -32,7 +39,7 @@ public class Calculation {
         calculationTable = table.getTabelle();
 
         for (int i = 0; i < table.getColumns() - 1; i++) {
-            int val = calculationTable[table.getRows() - 1][i]:
+            int val = calculationTable[table.getRows() - 1][i];
             if (val >= 0) {
                 vCount++;
             }

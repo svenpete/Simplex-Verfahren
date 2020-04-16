@@ -2,7 +2,8 @@ package Core;
 
 public enum ERROR
 {
-    NOT_OPTIMAL,
-    IS_OPTIMAL,
-    UNBOUNDED
-};
+    STRING_NOT_OPTIMAL("NOT_OPTIMAL"),
+    STRING_IS_OPTIMAL("IS_OPTIMAL"),
+    STRING_UNBOUNDED("UNBOUNDED");
+
+}

@@ -64,6 +64,10 @@ public class Table
     }
 
 
+    public void setSolutionIsUnbounded(boolean solutionIsUnbounded) {
+        this.solutionIsUnbounded = solutionIsUnbounded;
+    }
+
     public int[][] getTabelle() {
         return tabelle;
     }
