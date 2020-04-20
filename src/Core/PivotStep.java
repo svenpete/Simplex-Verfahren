@@ -4,7 +4,7 @@ public class PivotStep
 {
     private int pivotColumn;
     private int pivotRow;
-    private int[][] pivotTable;
+    private float[][] pivotTable;
     /* private double pivotElement;
     private boolean isPivotElementTaken;
 
@@ -23,7 +23,7 @@ public class PivotStep
 
     public int findPivotColumn(Table table)
     {
-        int[] values = new int[table.getColumns()];
+        float[] values = new float[table.getColumns()];
         int column = 0;
         int pos,count = 0;
         pivotTable = table.getTabelle();
@@ -49,9 +49,9 @@ public class PivotStep
     }
 
 
-    private int findLargestValue(int[] data)
+    private int findLargestValue(float[] data)
     {
-        int maximum;
+        float maximum;
         int location = 0;
         maximum = data[0];
 
@@ -69,9 +69,9 @@ public class PivotStep
     }
 
 
-    private int findLowestValue(int[] data)
+    public int findLowestValue(float[] data)
     {
-        int minimum;
+        float minimum;
         int location = 0;
         minimum = data[0];
 
@@ -89,11 +89,11 @@ public class PivotStep
     }
 
 
-    private double[] calculateRatio(Table table, int column)
+    public float[] calculateRatio(Table table, int column)
     {
 
-        double [] positiveEntries = new double[pivotTable[1].length];
-        double [] result = new double[pivotTable[1].length];
+        float [] positiveEntries = new float[pivotTable[1].length];
+        float [] result = new float[pivotTable[1].length];
         int allNegativeCount = 0;
 
         for(int i=0; i<pivotTable[i].length;i++)
@@ -117,7 +117,7 @@ public class PivotStep
             {
                 for (int i =0; i<pivotTable[1].length;i++)
                 {
-                    double value = positiveEntries[i];
+                    float value = positiveEntries[i];
                     if (value>0)
                     {
                         result[i] =pivotTable[i][table.getColumns()-1] / value;

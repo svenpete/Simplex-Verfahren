@@ -6,7 +6,7 @@ public class Table
 {
     private int columns, rows;
     private boolean solutionIsUnbounded = false;
-    private int[][] tabelle;
+    private float[][] tabelle;
 
 
     /**
@@ -23,10 +23,10 @@ public class Table
     }
 
 
-    private int[][] createTableArray(int rows,int columns)
+    private float[][] createTableArray(int rows, int columns)
     {
-        int[][] table;
-        table = new int[rows-1][columns-1];
+        float[][] table;
+        table = new float[rows-1][columns-1];
         return table;
     }
 
@@ -64,11 +64,15 @@ public class Table
     }
 
 
+    public boolean isSolutionIsUnbounded() {
+        return solutionIsUnbounded;
+    }
+
     public void setSolutionIsUnbounded(boolean solutionIsUnbounded) {
         this.solutionIsUnbounded = solutionIsUnbounded;
     }
 
-    public int[][] getTabelle() {
+    public float[][] getTabelle() {
         return tabelle;
     }
 
