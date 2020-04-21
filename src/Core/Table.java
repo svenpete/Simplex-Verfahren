@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class Table
 {
-    private int columns, rows;
-    private boolean solutionIsUnbounded = false;
-    private float[][] tabelle;
+
+    private static int rows,cols;
+    private static boolean solutionIsUnbounded = false;
+    private static float[][] tabelle;
 
 
     /**
@@ -15,22 +16,20 @@ public class Table
      * @param columns represent the variables
      *
      */
-    public Table(int rows,int columns)
+    public Table(int numOfConstraints,int numOfUnknowns)
     {
-        this.columns = columns;
-        this.rows = rows;
+        rows = numOfConstraints+1;
+        cols = numOfUnknowns+1;
+        tabelle = new float[rows][];
 
+        for(int i=0;i<rows;i++)
+        {
+            tabelle[i] = new float[cols];
+        }
     }
 
 
-    private float[][] createTableArray(int rows, int columns)
-    {
-        float[][] table;
-        table = new float[rows-1][columns-1];
-        return table;
-    }
-
-    public void createTable()
+    public static void createTable()
     {
         Scanner NBScanner = new Scanner(System.in);
         Scanner VBScanner = new Scanner(System.in);
@@ -38,86 +37,73 @@ public class Table
         System.out.println("Geben Sie die Anzahl an Nebenbedingugnen an:");
         int constraint = NBScanner.nextInt();
 
-
         System.out.println("Geben Sie die Anzahl an Variabeln an:");
         int variabels = VBScanner.nextInt();
 
-        Table table = new Table(constraint,variabels);
-        tabelle = table.createTableArray(constraint+1,variabels+1);
-        System.out.println("Es gibt " +(tabelle.length)+" Nebenbedingungen. Es gibt " + (tabelle[0].length) +" Variabeln.");
-
+        Table table= new Table(constraint,variabels);
+        float[][] transmit = table.enterTableValues();
+        table.fillTable(transmit);
+        table.print();
     }
 
-    public void fillTable() {
+    private float[][] enterTableValues() {
+        float[][] data = new float[rows][cols];
         for (int i = 0; i < tabelle.length; i++) {
             for (int j = 0; j < tabelle[i].length; j++) {
                 System.out.println("Geben Sie den Wert in der Tabelle für [" + i + "][" + j + "] ein ");
 
                 Scanner scanner = new Scanner(System.in);
 
-                tabelle[i][j] = scanner.nextInt();
+                data[i][j] = scanner.nextInt();
 
-                System.out.println("Der Wert in Tabelle[" + i + "][" + j + "] ist:" + tabelle[i][j]);
+                System.out.println("Der Wert in Tabelle[" + i + "][" + j + "] ist:" + data[i][j]);
 
             }
         }
+        return data;
+    }
+
+    public void fillTable(float[][] data){
+        for(int i = 0; i < tabelle.length; i++){
+            System.arraycopy(data[i], 0, tabelle[i], 0, data[i].length);
+        }
+    }
+
+    public void print(){
+        for(int i = 0; i < rows; i++){
+            for(int j = 0; j < cols; j++){
+                String value = String.format("%.2f", tabelle[i][j]);
+                System.out.print(value + "\t");
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 
 
-    public boolean isSolutionIsUnbounded() {
+
+
+
+    public static boolean isSolutionIsUnbounded() {
         return solutionIsUnbounded;
     }
 
-    public void setSolutionIsUnbounded(boolean solutionIsUnbounded) {
-        this.solutionIsUnbounded = solutionIsUnbounded;
+    public static void setSolutionIsUnbounded(boolean solutionIsUnbounded) {
+        Table.solutionIsUnbounded = solutionIsUnbounded;
     }
 
-    public float[][] getTabelle() {
+    public static float[][] getTabelle() {
         return tabelle;
     }
 
-    public int getRows() {
+    public static int getRows() {
         return rows;
     }
 
-    public int getColumns() {
-        return columns;
+    public static int getColumns() {
+        return cols;
     }
 
-    public void printTable()
-        {
-            switch (tabelle.length)
-            {
-                case 1:
-                    System.out.println("Variabeln:\t VB1");
-                    break;
-
-                case 2:
-                    System.out.println("Variabeln:\t  VB1|VB2");
-                    break;
-
-                case 3:
-                    System.out.println("Variabeln:\t  VB1|VB2|VB3");
-                    break;
-
-                case 4:
-                    System.out.println("Variabeln:\t  VB1|VB2|VB3|VB4");
-                    break;
-            }
-            for (int i=0;i<tabelle.length;i++)
-            {
-                System.out.print("NB" +(i+1)+":\t \t\t");
-                for( int j = 0; j<tabelle[i].length;j++)
-                {
-                    System.out.print(tabelle[i][j] + "|");
-                    if (tabelle[i].length-1==j)
-                    {
-                        System.out.print("\n");
-                    }
-                }
-            }
-
-        }
 }
 
 

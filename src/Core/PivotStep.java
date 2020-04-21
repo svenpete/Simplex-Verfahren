@@ -5,41 +5,26 @@ public class PivotStep
     private int pivotColumn;
     private int pivotRow;
     private float[][] pivotTable;
-    /* private double pivotElement;
-    private boolean isPivotElementTaken;
-
-    public PivotStep(double pivotColumn, double pivotRow, double pivotElement, boolean isPivotElementTaken)
-    {
-        this.pivotColumn = pivotColumn;
-        this.pivotRow = pivotRow;
-        this.pivotElement = pivotElement;
-        this.isPivotElementTaken = isPivotElementTaken;
-    }*/
 
     public PivotStep(){}
 
-
-
-
-    public int findPivotColumn(Table table)
+    public int findPivotColumn()
     {
-        float[] values = new float[table.getColumns()];
+        float[] values = new float[Table.getColumns()];
         int column = 0;
         int pos,count = 0;
-        pivotTable = table.getTabelle();
+        pivotTable = Table.getTabelle();
 
-        for(pos = 0; pos < table.getColumns()-1;pos++)
+        for(pos = 0; pos < Table.getColumns(); pos++)
         {
-            if(pivotTable[table.getRows()-1][pos]<0)
+            if(pivotTable[Table.getRows()][pos]<0)
             {
                 count++;
             }
-
-
             if (count > 1)
             {
-                for (int i=0; i<table.getColumns()-1;i++) {
-                    values[i] = Math.abs(pivotTable[table.getRows() - 1][i]);
+                for (int i=0; i<Table.getColumns();i++) {
+                    values[i] = Math.abs(pivotTable[Table.getRows()][i]);
                    column = findLargestValue(values);
                 }
             }else column = count-1;
@@ -89,7 +74,7 @@ public class PivotStep
     }
 
 
-    public float[] calculateRatio(Table table, int column)
+    public float[] calculateRatio(int column)
     {
 
         float [] positiveEntries = new float[pivotTable[1].length];
@@ -112,7 +97,7 @@ public class PivotStep
 
         if (allNegativeCount ==pivotTable[1].length )
         {
-            table.setSolutionIsUnbounded(true);
+            Table.setSolutionIsUnbounded(true);
         }else
             {
                 for (int i =0; i<pivotTable[1].length;i++)
@@ -120,7 +105,7 @@ public class PivotStep
                     float value = positiveEntries[i];
                     if (value>0)
                     {
-                        result[i] =pivotTable[i][table.getColumns()-1] / value;
+                        result[i] =pivotTable[i][Table.getColumns()-1] / value;
                     }
                 }
             }
