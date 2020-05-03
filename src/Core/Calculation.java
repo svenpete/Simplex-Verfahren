@@ -2,28 +2,36 @@ package Core;
 
 public class Calculation {
     private float[][] calculationTable;
+    private boolean tableIsNotSet =true;
 
+    public void setCalculationTable(float[][] calculationTable) {
+        this.calculationTable = calculationTable;
+    }
 
     public Calculation()
     {
         Table.createTable();
     }
 
+
+
     public ERROR compute()
     {
+
         //step 1
         //checking if solution is optimal
         if (checkIfOptimal())
         {
             return ERROR.STRING_IS_OPTIMAL;
         }
+        tableIsNotSet=false;
 
         //step 2
         //finding the pivot column
 
         PivotStep step = new PivotStep();
         int pivotColumn =  step.findPivotColumn();
-        System.out.println("Pivot Column:   "+pivotColumn);
+        System.out.println("Pivot Column:   "+(1+pivotColumn));
 
         //step3
         //finding the pivot element in the pivot column
@@ -33,10 +41,13 @@ public class Calculation {
             return ERROR.STRING_UNBOUNDED;
         }
         int pivotRow = step.findLowestValue(ratios);
+        System.out.println("PivotRow: " +(1+pivotRow));
+        System.out.println("Das PivotElement ist" +calculationTable[pivotRow][pivotColumn]);
 
         //step 4
         //next table
-        formNextTableau(pivotRow,pivotColumn);
+        setCalculationTable(formNextTableau(pivotRow,pivotColumn));
+
 
 
 
@@ -47,15 +58,28 @@ public class Calculation {
     public  boolean checkIfOptimal(){
         boolean isOptimal = false;
         int vCount = 0;
-        calculationTable = Table.getTabelle();
 
-        for (int i = 0; i < Table.getColumns() - 1; i++) {
+        if(tableIsNotSet)
+        {
+
+            calculationTable = Table.getTabelle();
+
+            for (int i = 0; i < Table.getColumns() - 1; i++) {
+                float val = calculationTable[Table.getRows() - 1][i];
+                if (val >= 0) {
+                    vCount++;
+                }
+            }
+        }else{
+
+            for (int i = 0; i < Table.getColumns() - 1; i++) {
             float val = calculationTable[Table.getRows() - 1][i];
             if (val >= 0) {
                 vCount++;
             }
         }
 
+        }
         if(vCount == Table.getColumns()-1)
         {
             isOptimal = true;
@@ -63,7 +87,8 @@ public class Calculation {
 
         return isOptimal;
     }
-    private void formNextTableau(int pivotRow, int pivotColumn )
+
+    private float[][] formNextTableau(int pivotRow, int pivotColumn )
     {
         float pivotValue = calculationTable[pivotRow][pivotColumn];
         float[] pivotRowVals = new float[Table.getColumns()];
@@ -72,7 +97,7 @@ public class Calculation {
 
         System.arraycopy(calculationTable[pivotRow],0,pivotRowVals,0,Table.getColumns());
 
-        for (int i=0;i<Table.getRows();i++) {
+        for (int i=0;i<Table.getRows()-1;i++) {
             pivotColumnVals[i] = calculationTable[i][pivotColumn];
         }
 
@@ -81,7 +106,7 @@ public class Calculation {
             rowNew[i] = pivotRowVals[i]/ pivotValue;
         }
 
-        for (int i=0;i<Table.getRows();i++){
+        for (int i=0;i<Table.getRows()-1;i++){
             if (i!= pivotRow)
             {
                 for (int j = 0; j< Table.getColumns();j++)
@@ -91,8 +116,19 @@ public class Calculation {
                 }
             }
         }
-
         System.arraycopy(rowNew,0,calculationTable[pivotRow],0,rowNew.length);
+        for(int i = 0; i < calculationTable.length; i++){
+            for(int j = 0; j < calculationTable[i].length; j++){
+                String value = String.format("%.2f", calculationTable[i][j]);
+                System.out.print(value + "\t");
+            }
+            System.out.println();
+        }
+        System.out.println();
+
+        return calculationTable;
+
+
 
     }
 }

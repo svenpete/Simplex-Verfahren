@@ -19,7 +19,7 @@ public class Table
     public Table(int numOfConstraints,int numOfUnknowns)
     {
         rows = numOfConstraints+1;
-        cols = numOfUnknowns+1;
+        cols = numOfUnknowns+numOfConstraints+1;
         tabelle = new float[rows][];
 
         for(int i=0;i<rows;i++)
@@ -79,10 +79,6 @@ public class Table
         }
         System.out.println();
     }
-
-
-
-
 
     public static boolean isSolutionIsUnbounded() {
         return solutionIsUnbounded;

@@ -12,19 +12,20 @@ public class PivotStep
     {
         float[] values = new float[Table.getColumns()];
         int column = 0;
-        int pos,count = 0;
+        int count = 0;
         pivotTable = Table.getTabelle();
 
-        for(pos = 0; pos < Table.getColumns(); pos++)
+        for(int pos = 0; pos <Table.getColumns()-1; pos++)
         {
-            if(pivotTable[Table.getRows()][pos]<0)
+            if(pivotTable[Table.getRows()-1][pos]<0)
             {
                 count++;
+
             }
             if (count > 1)
             {
                 for (int i=0; i<Table.getColumns();i++) {
-                    values[i] = Math.abs(pivotTable[Table.getRows()][i]);
+                    values[i] = Math.abs(pivotTable[Table.getRows()-1][i]);
                    column = findLargestValue(values);
                 }
             }else column = count-1;
@@ -77,11 +78,11 @@ public class PivotStep
     public float[] calculateRatio(int column)
     {
 
-        float [] positiveEntries = new float[pivotTable[1].length];
-        float [] result = new float[pivotTable[1].length];
+        float [] positiveEntries = new float[Table.getRows()];
+        float [] result = new float[Table.getRows()];
         int allNegativeCount = 0;
 
-        for(int i=0; i<pivotTable[i].length;i++)
+        for(int i=0; i<Table.getRows();i++)
         {
             if (pivotTable[i][column]>0)
             {
@@ -95,12 +96,12 @@ public class PivotStep
         }
 
 
-        if (allNegativeCount ==pivotTable[1].length )
+        if (allNegativeCount ==Table.getRows() )
         {
             Table.setSolutionIsUnbounded(true);
         }else
             {
-                for (int i =0; i<pivotTable[1].length;i++)
+                for (int i =0; i<Table.getRows();i++)
                 {
                     float value = positiveEntries[i];
                     if (value>0)
