@@ -1,14 +1,13 @@
 package Core;
-public class Main
-{
-    public static void main(String[] args)
-    {
-        boolean quit=false;
+
+public class Main {
+    public static void main(String[] args) {
+        boolean quit = false;
 
         Calculation calculation = new Calculation();
 
         while (!quit) {
-           ERROR err = calculation.compute();
+            ERROR err = calculation.compute();
 
             if (err == ERROR.STRING_IS_OPTIMAL) {
                 quit = true;
@@ -17,8 +16,6 @@ public class Main
                 quit = true;
             }
         }
-
-
 
 
     }

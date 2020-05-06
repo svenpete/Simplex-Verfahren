@@ -2,35 +2,29 @@ package Core;
 
 import java.util.Scanner;
 
-public class Table
-{
+public class Table {
 
-    private static int rows,cols;
+    private static int rows, cols;
     private static boolean solutionIsUnbounded = false;
     private static float[][] tabelle;
 
 
     /**
-     *
-     * @param rows represent the Constraints
-     * @param columns represent the variables
-     *
+     * @param numOfConstraints   represent the Constraints
+     * @param numOfUnknowns represent the variables
      */
-    public Table(int numOfConstraints,int numOfUnknowns)
-    {
-        rows = numOfConstraints+1;
-        cols = numOfUnknowns+numOfConstraints+1;
+    public Table(int numOfConstraints, int numOfUnknowns) {
+        rows = numOfConstraints + 1;
+        cols = numOfUnknowns + numOfConstraints + 1;
         tabelle = new float[rows][];
 
-        for(int i=0;i<rows;i++)
-        {
+        for (int i = 0; i < rows; i++) {
             tabelle[i] = new float[cols];
         }
     }
 
 
-    public static void createTable()
-    {
+    public static void createTable() {
         Scanner NBScanner = new Scanner(System.in);
         Scanner VBScanner = new Scanner(System.in);
 
@@ -40,7 +34,8 @@ public class Table
         System.out.println("Geben Sie die Anzahl an Variabeln an:");
         int variabels = VBScanner.nextInt();
 
-        Table table= new Table(constraint,variabels);
+        Table table = new Table(constraint, variabels);
+        //Table table = new Table(3,2);
         float[][] transmit = table.enterTableValues();
         table.fillTable(transmit);
         table.print();
@@ -63,15 +58,15 @@ public class Table
         return data;
     }
 
-    public void fillTable(float[][] data){
-        for(int i = 0; i < tabelle.length; i++){
+    public void fillTable(float[][] data) {
+        for (int i = 0; i < tabelle.length; i++) {
             System.arraycopy(data[i], 0, tabelle[i], 0, data[i].length);
         }
     }
 
-    public void print(){
-        for(int i = 0; i < rows; i++){
-            for(int j = 0; j < cols; j++){
+    public void print() {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
                 String value = String.format("%.2f", tabelle[i][j]);
                 System.out.print(value + "\t");
             }
