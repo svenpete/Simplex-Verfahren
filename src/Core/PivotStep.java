@@ -7,6 +7,7 @@ public class PivotStep {
     public PivotStep() {
     }
 
+    //TO-DO FEHLER SUCHEN
     public int findPivotColumn() {
         float[] values = new float[Table.getColumns()];
         int column = 0;
@@ -44,7 +45,7 @@ public class PivotStep {
         return location;
 
     }
-
+    //TO_DO FEHLER ÜBERPRÜFEN
     public int findSmallestValue(float[] data) {
         float minimum;
         int location = 0;
