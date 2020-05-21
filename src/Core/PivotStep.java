@@ -2,25 +2,33 @@ package Core;
 
 public class PivotStep {
    
-    private float[][] pivotTable;
+    private Float[][] pivotTable;
 
     public PivotStep() {
     }
 
     //TO-DO FEHLER SUCHEN
     public int findPivotColumn() {
-        float[] values = new float[Table.getColumns()];
+        float[] values = new float[Table.getColumns() - 1];
         int column = 0;
         int count = 0;
         pivotTable = Table.getTabelle();
 
         for (int pos = 0; pos < Table.getColumns() - 1; pos++) {
-            if (pivotTable[Table.getRows() - 1][pos] < 0) {
+
+            //increases count each time a
+            // value is less than zero | in second last row
+            // -1 is probably
+            if (pivotTable[Table.getRows()][pos] < 0) {
                 count++;
 
             }
-            if (count > 1) {
-                for (int i = 0; i < Table.getColumns(); i++) {
+
+            if (count > 1)
+            {
+
+                for (int i = 0; i < Table.getColumns() - 1; i++)
+                {
                     values[i] = Math.abs(pivotTable[Table.getRows() - 1][i]);
                     column = findLargestValue(values);
                 }

@@ -1,6 +1,7 @@
 package TestEditableTable.Controller;
 
 import Tableview.model.Variable;
+import TestEditableTable.Model.Core.Calculation;
 import TestEditableTable.View.AlertBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -32,8 +33,6 @@ public class tableController implements Initializable
 
     ObservableList<Integer> variablesList =
             FXCollections.observableArrayList(1,2,3,4,5,6);
-
-
 
     @FXML
     private ComboBox<Integer> variables;
@@ -104,7 +103,9 @@ public class tableController implements Initializable
                     count ++;
                }
             }
-            switchScene();
+            Calculation calculation = new Calculation(values);
+            calculation.solve();
+            //switchScene();
         }
     }
 
@@ -115,7 +116,7 @@ public class tableController implements Initializable
     void switchScene()
     {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource(".View/result.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/TestEditableTable/View/result.fxml"));
             Stage stage = (Stage) compute.getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -266,7 +267,6 @@ public class tableController implements Initializable
                 col_x1.setCellValueFactory
                         (new PropertyValueFactory<>("x1"));
                 col_x1.setVisible(true);
-
                 col_x2.setVisible(false);
                 col_x3.setVisible(false);
                 col_x4.setVisible(false);
@@ -684,9 +684,6 @@ public class tableController implements Initializable
             }
 
         }
-
-
-
         return inputValid;
     }
 

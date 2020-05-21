@@ -6,7 +6,7 @@ public class Table {
 
     private static int rows, cols;
     private static boolean solutionIsUnbounded = false;
-    private static float[][] tabelle;
+    private static Float[][] tabelle;
 
 
     /**
@@ -16,10 +16,10 @@ public class Table {
     public Table(int numOfConstraints, int numOfUnknowns) {
         rows = numOfConstraints + 1;
         cols = numOfUnknowns + numOfConstraints + 1;
-        tabelle = new float[rows][];
+        tabelle = new Float[rows][];
 
         for (int i = 0; i < rows; i++) {
-            tabelle[i] = new float[cols];
+            tabelle[i] = new Float[cols];
         }
     }
 
@@ -83,7 +83,7 @@ public class Table {
         Table.solutionIsUnbounded = solutionIsUnbounded;
     }
 
-    public static float[][] getTabelle() {
+    public static Float[][] getTabelle() {
         return tabelle;
     }
 

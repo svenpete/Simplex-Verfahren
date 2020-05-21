@@ -1,10 +1,10 @@
 package Core;
 
 public class Calculation {
-    private float[][] calculationTable;
+    private Float[][] calculationTable;
     private boolean tableIsNotSet = true;
 
-    public void setCalculationTable(float[][] calculationTable) {
+    public void setCalculationTable(Float[][] calculationTable) {
         this.calculationTable = calculationTable;
     }
 
@@ -34,6 +34,7 @@ public class Calculation {
         if (Table.isSolutionIsUnbounded()) {
             return ERROR.STRING_UNBOUNDED;
         }
+
         int pivotRow = step.findSmallestValue(ratios);
         System.out.println("Das PivotElement ist" + calculationTable[pivotRow][pivotColumn]);
 
@@ -79,8 +80,10 @@ public class Calculation {
 
 
     //TO-DO FEHLER ÜBERPRÜFEN
-    private float[][] formNextTableau(int pivotRow, int pivotColumn) {
+    private Float[][] formNextTableau(int pivotRow, int pivotColumn)
+    {
         float pivotValue = calculationTable[pivotRow][pivotColumn];
+
         float[] pivotRowValues = new float[Table.getColumns()];
         float[] pivotColumnValues = new float[Table.getColumns()];
         float[] rowNew = new float[Table.getColumns()];

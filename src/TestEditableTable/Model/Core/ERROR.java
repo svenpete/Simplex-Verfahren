@@ -1,4 +1,4 @@
-package TestEditableTable.Core;
+package TestEditableTable.Model.Core;
 
 public enum ERROR {
     STRING_NOT_OPTIMAL("NOT_OPTIMAL"),
