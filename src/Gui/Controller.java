@@ -15,6 +15,7 @@ public class Controller implements Initializable {
 
     ObservableList<Integer> constraints =
             FXCollections.observableArrayList(1,2,3,4,5,6);
+
     ObservableList<Integer> variables =
             FXCollections.observableArrayList(1,2,3,4,5,6);
 
