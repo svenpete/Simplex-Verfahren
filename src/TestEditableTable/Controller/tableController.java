@@ -2,6 +2,7 @@ package TestEditableTable.Controller;
 
 import Tableview.model.Variable;
 import TestEditableTable.Model.Core.Calculation;
+import TestEditableTable.Model.Schlupfvariable;
 import TestEditableTable.View.AlertBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -65,6 +66,28 @@ public class tableController implements Initializable
     private TableColumn<Variable, Button> col_update;
 
     @FXML
+    private TableColumn<Variable,String> col_y1;
+
+    @FXML
+    private TableColumn<Schlupfvariable, String> col_s1;
+
+    @FXML
+    private TableColumn<Schlupfvariable, String> col_s2;
+
+    @FXML
+    private TableColumn<Schlupfvariable, String> col_s3;
+
+    @FXML
+    private TableColumn<Schlupfvariable, String> col_s4;
+
+    @FXML
+    private TableColumn<Schlupfvariable, String> col_s5;
+
+    @FXML
+    private TableColumn<Schlupfvariable, String> col_s6;
+
+
+    @FXML
     private Button compute;
 
     @FXML
@@ -98,14 +121,14 @@ public class tableController implements Initializable
         {
 
             for (int i = 0; i < values.length; i++) {
-                for (int j = 0; j < values[i].length; j++) {
+                for (int j = 0; j < values[i].length ; j++) {
                     System.out.println( " Wertnummer " + count + ": " + values[i][j]);
                     count ++;
                }
             }
             Calculation calculation = new Calculation(values);
             calculation.solve();
-            //switchScene();
+
         }
     }
 
@@ -147,9 +170,55 @@ public class tableController implements Initializable
         for (Variable variable : table_info.getItems()) {
             tableVariables.add(variable);
 
+
         }
 
     return tableVariables;
+    }
+
+    private Float[][] getTableVariables2()
+    {
+        List<Variable> tableItems = table_info.getItems();
+
+        int columnCount = Integer.parseInt(String.valueOf(variables.getItems()));
+
+        Float[][] variable = new Float[tableItems.size()][columnCount];
+
+        for (int i = 0; i < tableItems.size(); i++)
+        {
+            for (int j = 0; j < columnCount ; j++)
+            {
+                switch (j)
+                {
+                    case 1:
+                        variable[i][j] = Float.valueOf(tableItems.get(i).getX1());
+                                break;
+                    case 2:
+                        variable[i][j] = Float.valueOf(tableItems.get(i).getX2());
+                        break;
+                    case 3:
+                        variable[i][j] = Float.valueOf(tableItems.get(i).getX3());
+                        break;
+                    case 4:
+                        variable[i][j] = Float.valueOf(tableItems.get(i).getX4());
+                        break;
+                    case 5:
+                        variable[i][j] = Float.valueOf(tableItems.get(i).getX5());
+                        break;
+                    case 6:
+                        variable[i][j] = Float.valueOf(tableItems.get(i).getX6());
+                        break;
+
+                }
+                Integer spaceLeft = j - columnCount;
+
+            }
+
+        }
+
+
+
+        return variable;
     }
 
     private Float[][] createArray(List<Variable> variables){
@@ -259,130 +328,251 @@ public class tableController implements Initializable
      *
      * @param colSize needed for variables initialise
      */
-    private void initCols(int colSize) {
+    private void initCols(int colSize)
+    {
+        col_update.setVisible(false);
 
         switch (colSize)
         {
             case 1:
                 col_x1.setCellValueFactory
                         (new PropertyValueFactory<>("x1"));
+
+                col_s1.setCellValueFactory(
+                        new PropertyValueFactory<>("s1"));
+
+
+
                 col_x1.setVisible(true);
                 col_x2.setVisible(false);
                 col_x3.setVisible(false);
                 col_x4.setVisible(false);
                 col_x5.setVisible(false);
                 col_x6.setVisible(false);
+
+                col_s1.setVisible(true);
+                col_s2.setVisible(false);
+                col_s3.setVisible(false);
+                col_s4.setVisible(false);
+                col_s5.setVisible(false);
+                col_s6.setVisible(false);
+
+
                 break;
 
 
             case 2:
                 col_x1.setCellValueFactory
                         (new PropertyValueFactory<>("x1"));
-                col_x1.setVisible(true);
+
 
                 col_x2.setCellValueFactory
                         (new PropertyValueFactory<>("x2"));
-                col_x2.setVisible(true);
 
+
+                col_s1.setCellValueFactory(
+                        new PropertyValueFactory<>("s1")
+                );
+
+                col_s2.setCellValueFactory(
+                        new PropertyValueFactory<>("s2")
+                );
+
+                col_x1.setVisible(true);
+                col_x2.setVisible(true);
                 col_x3.setVisible(false);
                 col_x4.setVisible(false);
                 col_x5.setVisible(false);
                 col_x6.setVisible(false);
+
+                col_s1.setVisible(true);
+                col_s2.setVisible(true);
+                col_s3.setVisible(false);
+                col_s4.setVisible(false);
+                col_s5.setVisible(false);
+                col_s6.setVisible(false);
                 break;
 
 
             case 3:
                 col_x1.setCellValueFactory
                         (new PropertyValueFactory<>("x1"));
-                col_x1.setVisible(true);
 
                 col_x2.setCellValueFactory
                         (new PropertyValueFactory<>("x2"));
-                col_x2.setVisible(true);
 
                 col_x3.setCellValueFactory
                         (new PropertyValueFactory<>("x3"));
-                col_x3.setVisible(true);
 
+
+                col_s1.setCellValueFactory
+                        (new PropertyValueFactory<>("s1"));
+
+                col_s2.setCellValueFactory
+                        (new PropertyValueFactory<>("s2"));
+
+                col_s3.setCellValueFactory
+                        (new PropertyValueFactory<>("s3"));
+
+                col_x1.setVisible(true);
+                col_x2.setVisible(true);
+                col_x3.setVisible(true);
                 col_x4.setVisible(false);
                 col_x5.setVisible(false);
                 col_x6.setVisible(false);
+
+                col_s1.setVisible(true);
+                col_s2.setVisible(true);
+                col_s3.setVisible(true);
+                col_s4.setVisible(false);
+                col_s5.setVisible(false);
+                col_s6.setVisible(false);
                 break;
 
             case 4:
                 col_x1.setCellValueFactory
-                        (new PropertyValueFactory<>("x1"));
-                col_x1.setVisible(true);
+                    (new PropertyValueFactory<>("x1"));
 
                 col_x2.setCellValueFactory
                         (new PropertyValueFactory<>("x2"));
-                col_x2.setVisible(true);
 
                 col_x3.setCellValueFactory
                         (new PropertyValueFactory<>("x3"));
-                col_x3.setVisible(true);
 
                 col_x4.setCellValueFactory
                         (new PropertyValueFactory<>("x4"));
+
+                col_s1.setCellValueFactory
+                        (new PropertyValueFactory<>("s1"));
+
+                col_s2.setCellValueFactory
+                        (new PropertyValueFactory<>("s2"));
+
+                col_s3.setCellValueFactory
+                        (new PropertyValueFactory<>("s3"));
+
+                col_s4.setCellValueFactory
+                        (new PropertyValueFactory<>("s4"));
+
+
+
+                col_x1.setVisible(true);
+                col_x2.setVisible(true);
+                col_x3.setVisible(true);
                 col_x4.setVisible(true);
-
-
                 col_x5.setVisible(false);
                 col_x6.setVisible(false);
+
+                col_s1.setVisible(true);
+                col_s2.setVisible(true);
+                col_s3.setVisible(true);
+                col_s4.setVisible(true);
+                col_s5.setVisible(false);
+                col_s6.setVisible(false);
                 break;
 
             case 5:
                 col_x1.setCellValueFactory
                         (new PropertyValueFactory<>("x1"));
-                col_x1.setVisible(true);
 
                 col_x2.setCellValueFactory
                         (new PropertyValueFactory<>("x2"));
-                col_x2.setVisible(true);
 
                 col_x3.setCellValueFactory
                         (new PropertyValueFactory<>("x3"));
-                col_x3.setVisible(true);
 
                 col_x4.setCellValueFactory
                         (new PropertyValueFactory<>("x4"));
-                col_x4.setVisible(true);
 
                 col_x5.setCellValueFactory
                         (new PropertyValueFactory<>("x5"));
-                col_x5.setVisible(true);
 
+
+                col_s1.setCellValueFactory
+                        (new PropertyValueFactory<>("s1"));
+
+                col_s2.setCellValueFactory
+                        (new PropertyValueFactory<>("s2"));
+
+                col_s3.setCellValueFactory
+                        (new PropertyValueFactory<>("s3"));
+
+                col_s4.setCellValueFactory
+                        (new PropertyValueFactory<>("s4"));
+
+                col_s5.setCellValueFactory
+                        (new PropertyValueFactory<>("s5"));
+
+                col_x1.setVisible(true);
+                col_x2.setVisible(true);
+                col_x3.setVisible(true);
+                col_x4.setVisible(true);
+                col_x5.setVisible(true);
                 col_x6.setVisible(false);
+
+                col_s1.setVisible(true);
+                col_s2.setVisible(true);
+                col_s3.setVisible(true);
+                col_s4.setVisible(true);
+                col_s5.setVisible(true);
+                col_s6.setVisible(false);
                 break;
 
             case 6:
                 col_x1.setCellValueFactory
                         (new PropertyValueFactory<>("x1"));
-                col_x1.setVisible(true);
 
                 col_x2.setCellValueFactory
                         (new PropertyValueFactory<>("x2"));
-                col_x2.setVisible(true);
 
                 col_x3.setCellValueFactory
                         (new PropertyValueFactory<>("x3"));
-                col_x3.setVisible(true);
 
                 col_x4.setCellValueFactory
                         (new PropertyValueFactory<>("x4"));
-                col_x4.setVisible(true);
 
                 col_x5.setCellValueFactory
                         (new PropertyValueFactory<>("x5"));
-                col_x5.setVisible(true);
 
                 col_x6.setCellValueFactory
                         (new PropertyValueFactory<>("x6"));
+
+                col_s1.setCellValueFactory
+                        (new PropertyValueFactory<>("s1"));
+
+                col_s2.setCellValueFactory
+                        (new PropertyValueFactory<>("s2"));
+
+                col_s3.setCellValueFactory
+                        (new PropertyValueFactory<>("s3"));
+
+                col_s4.setCellValueFactory
+                        (new PropertyValueFactory<>("s4"));
+
+                col_s5.setCellValueFactory
+                        (new PropertyValueFactory<>("s5"));
+
+                col_s6.setCellValueFactory
+                        (new PropertyValueFactory<>("s6"));
+
+                col_x1.setVisible(true);
+                col_x2.setVisible(true);
+                col_x3.setVisible(true);
+                col_x4.setVisible(true);
+                col_x5.setVisible(true);
                 col_x6.setVisible(true);
+
+                col_s1.setVisible(true);
+                col_s2.setVisible(true);
+                col_s3.setVisible(true);
+                col_s4.setVisible(true);
+                col_s5.setVisible(true);
+                col_s6.setVisible(true);
                 break;
 
         }
-
+        col_y1.setCellValueFactory(new PropertyValueFactory<>("y1"));
+        col_y1.setVisible(true);
         col_update.setCellValueFactory
                 (new PropertyValueFactory<>("update"));
 
@@ -607,6 +797,12 @@ public class tableController implements Initializable
                 break;
         }
 
+        col_y1.setCellFactory(TextFieldTableCell.forTableColumn());
+        col_y1.setOnEditCommit( e ->{
+            e.getTableView().getItems().get(e.getTablePosition().getRow()).setY1(e.getNewValue());
+        });
+
+
         table_info.setEditable(true);
     }
 
@@ -624,29 +820,51 @@ public class tableController implements Initializable
             {
                 case 1 :
                     data_table.add(new Variable(
-                                    "1.00", new Button("update")));
+                                    "1.00", "5.00"));
+
                     break;
 
-                case 2 : data_table.add(new Variable(
-                                "1.00", "2.00", new Button("update")));
+                case 2 :
+                    data_table.add(new Variable("1.00", "2.00", "2.00"));
+
                     break;
 
                 case 3 :
                     data_table.add(new Variable(
-                            "1.00", "2.00","3.00", new Button("update")));
+                            "1.00", "2.00","3.00", "3.00"));
+
                     break;
 
                 case 4 : data_table.add(new Variable(
-                        "1.00", "2.00","3.00", "4.00",  new Button("update")));
+                        "1.00", "2.00","3.00", "4.00",  "5.00"));
+
+
                     break;
 
                 case 5 :
                     data_table.add(new Variable(
-                            "1.00", "2.00", "3.00", "4.00", "5.00", new Button("update")));
+                            "1.00", "2.00", "3.00", "4.00", "5.00", "4.00"));
+                    /*
+                    data_table.add(new Schlupfvariable("1.00","0.00","0.00","0.00","0.00"));
+                    data_table.add(new Schlupfvariable("0.00","1.00","0.00","0.00","0.00"));
+                    data_table.add(new Schlupfvariable("0.00","0.00","1.00","0.00","0.00"));
+                    data_table.add(new Schlupfvariable("0.00","0.00","0.00","1.00","0.00"));
+                    data_table.add(new Schlupfvariable("0.00","0.00","0.00","0.00","1.00"));
+
+                     */
                     break;
 
-                case 6 : data_table.add(new Variable(
-                        "1.00", "2.00", "3.00", "4.00", "5.00","6.00", new Button("update")));
+                case 6 :
+                    data_table.add(new Variable("1.00", "2.00", "3.00", "4.00", "5.00","6.00", "2.00"));
+
+                    data_table.add(new Schlupfvariable("1.00","0.00","0.00","0.00","0.00","0.00"));
+                    data_table.add(new Schlupfvariable("0.00","1.00","0.00","0.00","0.00","0.00"));
+                    data_table.add(new Schlupfvariable("0.00","0.00","1.00","0.00","0.00","0.00"));
+                    data_table.add(new Schlupfvariable("0.00","0.00","0.00","1.00","0.00","0.00"));
+                    data_table.add(new Schlupfvariable("0.00","0.00","0.00","0.00","1.00","0.00"));
+                    data_table.add(new Schlupfvariable("0.00","0.00","0.00","0.00","0.00","1.00"));
+
+
                     break;
             }
 

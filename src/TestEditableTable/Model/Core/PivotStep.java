@@ -85,7 +85,7 @@ public class PivotStep {
         Float[] result = new Float[(rowSize - 1)];
         Integer allNegativeCount = 0;
 
-        // Wo klammern?
+
         for (int i = 0; i < (rowSize - 1); i++) {
 
             if (pivotTable[i][column] > 0) {

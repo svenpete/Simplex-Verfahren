@@ -56,11 +56,11 @@ public class Calculation {
         }
 
         int pivotRow = step.findSmallestValue(ratios);
-        System.out.println("Das PivotElement ist" + calculationTable[pivotRow][pivotColumn]);
+        System.out.println("Das PivotElement ist " + calculationTable[pivotRow][pivotColumn]);
 
         //step 4
         //next table
-        //setCalculationTable(formNextTableau(pivotRow, pivotColumn));
+         formNextTableau(pivotRow, pivotColumn);
 
 
         return ERROR.STRING_NOT_OPTIMAL;
@@ -98,7 +98,8 @@ public class Calculation {
         float[] pivotRowValues = new float[calculationTable[0].length];
         float[] pivotColumnValues = new float[calculationTable.length];
         float[] rowNew = new float[calculationTable.length];
-        //???
+
+
         System.arraycopy(calculationTable[pivotRow], 0, pivotRowValues,
                 0, calculationTable[0].length);
 

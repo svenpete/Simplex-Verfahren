@@ -5,151 +5,60 @@ import javafx.scene.control.Button;
 
 public class Variable
 {
-    String x1, x2, x3, x4, x5,x6;
-    Button update;
+    String x1, x2, x3, x4, x5, x6, y1;
 
-    public Variable(String x1, String x2, String x3, String x4, String x5, String x6, Button update) {
+
+    public Variable(String x1, String x2, String x3, String x4, String x5, String x6, String y1) {
         this.x1 = x1;
         this.x2 = x2;
         this.x3 = x3;
         this.x4 = x4;
         this.x5 = x5;
         this.x6 = x6;
-        this.update = update;
-
-        update.setOnAction(e -> {
-
-            for (Variable variable : tableController.data_table)
-            {
-                if(variable.getUpdate() == update)
-                {
-                    System.out.println("x1: " + variable.getX1());
-                    System.out.println("x2: " + variable.getX2());
-                    System.out.println("x3: " + variable.getX3());
-                    System.out.println("x4: " + variable.getX4());
-                    System.out.println("x5: " + variable.getX5());
-                    System.out.println("x6: " + variable.getX6());
-
-                }
-            }
-        }
-        );
+        this.y1 = y1;
     }
 
-    public Variable(String x1, String x2, String x3, String x4, String x5, Button update) {
+    public Variable(String x1, String x2, String x3, String x4, String x5, String y1)
+    {
         this.x1 = x1;
         this.x2 = x2;
         this.x3 = x3;
         this.x4 = x4;
         this.x5 = x5;
+        this.y1 = y1;
 
-        this.update = update;
-
-        update.setOnAction(e -> {
-
-                    for (Variable variable : tableController.data_table)
-                    {
-                        if(variable.getUpdate() == update)
-                        {
-                            System.out.println("x1: " + variable.getX1());
-                            System.out.println("x2: " + variable.getX2());
-                            System.out.println("x3: " + variable.getX3());
-                            System.out.println("x4: " + variable.getX4());
-                            System.out.println("x5: " + variable.getX5());
-
-                        }
-                    }
-                }
-        );
     }
 
-    public Variable(String x1, String x2, String x3, String x4, Button update) {
+    public Variable(String x1, String x2, String x3, String x4, String y1) {
         this.x1 = x1;
         this.x2 = x2;
         this.x3 = x3;
         this.x4 = x4;
+        this.y1 = y1;
 
-        this.update = update;
-
-        update.setOnAction(e -> {
-
-                    for (Variable variable : tableController.data_table)
-                    {
-                        if(variable.getUpdate() == update)
-                        {
-                            System.out.println("x1: " + variable.getX1());
-                            System.out.println("x2: " + variable.getX2());
-                            System.out.println("x3: " + variable.getX3());
-                            System.out.println("x4: " + variable.getX4());
-
-                        }
-                    }
-                }
-        );
     }
 
-    public Variable(String x1, String x2, String x3,  Button update) {
+    public Variable(String x1, String x2, String x3,  String y1) {
         this.x1 = x1;
         this.x2 = x2;
         this.x3 = x3;
-
-        this.update = update;
-
-        update.setOnAction(e -> {
-
-                    for (Variable variable : tableController.data_table)
-                    {
-                        if(variable.getUpdate() == update)
-                        {
-                            System.out.println("x1: " + variable.getX1());
-                            System.out.println("x2: " + variable.getX2());
-                            System.out.println("x3: " + variable.getX3());
-                        }
-                    }
-                }
-        );
+        this.y1 = y1;
     }
 
-    public Variable(String x1, String x2,  Button update) {
+    public Variable(String x1, String x2,  String y1) {
         this.x1 = x1;
         this.x2 = x2;
-
-        this.update = update;
-
-        update.setOnAction(e -> {
-
-                    for (Variable variable : tableController.data_table)
-                    {
-                        if(variable.getUpdate() == update)
-                        {
-                            System.out.println("x1: " + variable.getX1());
-                            System.out.println("x2: " + variable.getX2());
-
-                        }
-                    }
-                }
-        );
+        this.y1 = y1;
     }
 
-    public Variable(String x1,  Button update) {
+    public Variable(String x1,  String y1)
+    {
+
         this.x1 = x1;
+        this.y1 = y1;
+    }
 
-
-        this.update = update;
-
-        update.setOnAction(e -> {
-
-                    for (Variable variable : tableController.data_table)
-                    {
-                        if(variable.getUpdate() == update)
-                        {
-                            System.out.println("x1: " + variable.getX1());
-
-
-                        }
-                    }
-                }
-        );
+    public Variable() {
     }
 
 
@@ -177,9 +86,8 @@ public class Variable
         return x6;
     }
 
-    public Button getUpdate() {
-        return update;
-    }
+    public String getY1(){return y1;}
+
 
     public void setX1(String x1) {
         this.x1 = x1;
@@ -205,7 +113,7 @@ public class Variable
         this.x6 = x6;
     }
 
-    public void setUpdate(Button update) {
-        this.update = update;
+    public void setY1(String y1) {
+        this.y1 = y1;
     }
 }
