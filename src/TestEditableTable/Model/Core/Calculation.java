@@ -94,10 +94,10 @@ public class Calculation {
 
     private void formNextTableau(int pivotRow, int pivotColumn)
     {
-        float pivotValue = calculationTable[pivotRow][pivotColumn];
-        float[] pivotRowValues = new float[calculationTable[0].length];
-        float[] pivotColumnValues = new float[calculationTable.length];
-        float[] rowNew = new float[calculationTable.length];
+        Float pivotValue = calculationTable[pivotRow][pivotColumn];
+        Float[] pivotRowValues = new Float[calculationTable[0].length];
+        Float[] pivotColumnValues = new Float[calculationTable.length];
+        Float[] rowNew = new Float[calculationTable.length];
 
 
         System.arraycopy(calculationTable[pivotRow], 0, pivotRowValues,

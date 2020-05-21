@@ -159,22 +159,6 @@ public class tableController implements Initializable
 
     }
 
-    /**
-     *
-     * @return a list with variable objects from table
-     */
-    private List<Variable> getTableVariables2()
-    {
-        List<Variable> tableVariables = new ArrayList();
-
-        for (Variable variable : table_info.getItems()) {
-            tableVariables.add(variable);
-
-
-        }
-
-    return tableVariables;
-    }
 
     private Float[][] getTableVariables()
     {
@@ -182,7 +166,7 @@ public class tableController implements Initializable
         Integer rowCount = Integer.parseInt(String.valueOf(constraints.getValue()));
         Integer columnCount = Integer.parseInt(String.valueOf(variables.getValue()));
 
-        Float[][] variable = new Float[rowCount][columnCount];
+        Float[][] variable = new Float[rowCount][columnCount + 1];
 
         for (int i = 0; i < rowCount; i++)
         {
@@ -191,21 +175,25 @@ public class tableController implements Initializable
                 {
                     case 1:
                         variable[i][0] = Float.valueOf(tableItems.get(i).getX1());
+                        variable[i][1] = Float.valueOf(tableItems.get(i).getY1());
                         break;
                     case 2:
                         variable[i][0] = Float.valueOf(tableItems.get(i).getX1());
                         variable[i][1] = Float.valueOf(tableItems.get(i).getX2());
+                        variable[i][2] = Float.valueOf(tableItems.get(i).getY1());
                         break;
                     case 3:
                         variable[i][0] = Float.valueOf(tableItems.get(i).getX1());
                         variable[i][1] = Float.valueOf(tableItems.get(i).getX2());
                         variable[i][2] = Float.valueOf(tableItems.get(i).getX3());
+                        variable[i][3] = Float.valueOf(tableItems.get(i).getY1());
                         break;
                     case 4:
                         variable[i][0] = Float.valueOf(tableItems.get(i).getX1());
                         variable[i][1] = Float.valueOf(tableItems.get(i).getX2());
                         variable[i][2] = Float.valueOf(tableItems.get(i).getX3());
                         variable[i][3] = Float.valueOf(tableItems.get(i).getX4());
+                        variable[i][4] = Float.valueOf(tableItems.get(i).getY1());
                         break;
                     case 5:
                         variable[i][0] = Float.valueOf(tableItems.get(i).getX1());
@@ -213,6 +201,7 @@ public class tableController implements Initializable
                         variable[i][2] = Float.valueOf(tableItems.get(i).getX3());
                         variable[i][3] = Float.valueOf(tableItems.get(i).getX4());
                         variable[i][4] = Float.valueOf(tableItems.get(i).getX5());
+                        variable[i][5] = Float.valueOf(tableItems.get(i).getY1());
                         break;
                     case 6:
                         variable[i][0] = Float.valueOf(tableItems.get(i).getX1());
@@ -221,6 +210,7 @@ public class tableController implements Initializable
                         variable[i][3] = Float.valueOf(tableItems.get(i).getX4());
                         variable[i][4] = Float.valueOf(tableItems.get(i).getX5());
                         variable[i][5] = Float.valueOf(tableItems.get(i).getX6());
+                        variable[i][6] = Float.valueOf(tableItems.get(i).getY1());
                         break;
 
                 }
