@@ -77,6 +77,8 @@ public class Calculation {
         return isOptimal;
     }
 
+
+    //TO-DO FEHLER ÜBERPRÜFEN
     private float[][] formNextTableau(int pivotRow, int pivotColumn) {
         float pivotValue = calculationTable[pivotRow][pivotColumn];
         float[] pivotRowValues = new float[Table.getColumns()];
