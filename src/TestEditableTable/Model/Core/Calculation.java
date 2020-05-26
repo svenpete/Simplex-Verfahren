@@ -20,9 +20,11 @@ public class Calculation {
         while (!quit) {
             ERROR err = compute();
 
-            if (err == ERROR.STRING_IS_OPTIMAL) {
+            if (err == ERROR.STRING_IS_OPTIMAL)
+            {
                 quit = true;
-            } else if (err == ERROR.STRING_UNBOUNDED) {
+            } else if (err == ERROR.STRING_UNBOUNDED)
+            {
                 System.out.println("---Solution is unbounded---");
                 quit = true;
             }
@@ -50,7 +52,7 @@ public class Calculation {
 
         //step3
         //finding the pivot element in the pivot column
-        Float[] ratios = step.calculateRatio(pivotColumn);
+        Float[] ratios = step.calculateRatio(Math.abs(pivotColumn));
         if (PivotStep.solutionIsUnbounded) {
             return ERROR.STRING_UNBOUNDED;
         }
