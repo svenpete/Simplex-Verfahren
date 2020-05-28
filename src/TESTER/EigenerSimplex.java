@@ -56,17 +56,29 @@ public class EigenerSimplex {
     }
 
 
-    public float pivotZeile()
+    public int pivotZeile()
     {
         float[] pivotSpalteWerte = new float[zeile - 1 ];
         float[] letztSpalte =  new float[zeile - 1];
+        float kleinsterWert = 0;
+        float quotient;
+        int pivotZeile = 0;
+        int d = highestValueInLastZEILE();
+        for (int i = 0; i < zeile -1; i++) {
 
-        for (int i = 0; i < zeile; i++) {
-           pivotSpalteWerte[i] = table[i][highestValueInLastZEILE()];
+           pivotSpalteWerte[i] = table[i][d];
            letztSpalte[i] = table[i][spalte - 1];
-            System.out.println(letztSpalte[i]);
-            System.out.println( pivotSpalteWerte[i]);
+            quotient = letztSpalte[i] / pivotSpalteWerte[i];
+            if (i == 0) {
+                kleinsterWert = quotient;
+                pivotZeile = i;
+            }
+            if (quotient < kleinsterWert){
+                kleinsterWert = quotient;
+                pivotZeile = i;
+            }
+
         }
-    return (float) 1.00;
+    return pivotZeile;
     }
 }
