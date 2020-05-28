@@ -1,5 +1,5 @@
 package TESTER;
-
+/*
 public class SimplexTest {
 
     public static void main(String[] args) {
@@ -13,7 +13,6 @@ public class SimplexTest {
         float[][] standardized =  {
                 { 1,   1,    1,  0,   4},
                 { 1,   3,    0,  1,   6},
-                { 1,   2,    0,  0,   0},
                 {-3,  -5,    0,  0,   0}
         };
 
@@ -42,4 +41,6 @@ public class SimplexTest {
             }
         }
     }
-}
+
+ */
+

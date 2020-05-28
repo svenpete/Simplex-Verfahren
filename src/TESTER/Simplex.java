@@ -1,15 +1,11 @@
 package TESTER;
-
+/*
 public class Simplex {
     private int rows, cols; // row and column
     private float[][] table; // simplex tableau
     private boolean solutionIsUnbounded = false;
 
-    public static enum ERROR{
-        NOT_OPTIMAL,
-        IS_OPTIMAL,
-        UNBOUNDED
-    };
+
 
     public Simplex(int numOfConstraints, int numOfUnknowns){
         rows = numOfConstraints+1; // row number + 1
@@ -215,3 +211,5 @@ public class Simplex {
         return table;
     }
 }
+
+ */
