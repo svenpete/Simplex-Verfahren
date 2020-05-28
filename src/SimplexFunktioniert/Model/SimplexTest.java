@@ -28,7 +28,7 @@ public class SimplexTest {
         // if table is not optimal re-iterate
         while(!quit){
             ERROR err = simplex.compute();
-
+            simplex.print();
             if(err == ERROR.STRING_IS_OPTIMAL){
                 simplex.print();
                 quit = true;

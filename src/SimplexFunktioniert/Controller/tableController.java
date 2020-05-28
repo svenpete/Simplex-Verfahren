@@ -112,15 +112,7 @@ public class tableController implements Initializable
 
         if (checkInput(values))
         {
-            for (int i = 0; i < values.length; i++) {
-                for (int j = 0; j < values[i].length ; j++) {
-                    System.out.println( " Wertnummer " + count + ": " + values[i][j]);
-                    count ++;
-               }
-            }
-
             SimplexTest.calculate(new Simplex(constraints.getValue(), variables.getValue()), values);
-
 
         }
     }

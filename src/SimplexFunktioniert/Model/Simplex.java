@@ -42,15 +42,16 @@ public class Simplex
         // should be use in a loop to continously compute until
         // an optimal solution is found
         public ERROR compute(){
-            // step 1
+
+            // step 1 FEHLER
             if(checkOptimality()){
                 return ERROR.STRING_IS_OPTIMAL; // solution is optimal
             }
 
             // step 2
-            // find the entering column
+            // find the entering column  FEHLER
             int pivotColumn = findEnteringColumn();
-            System.out.println("Pivot Column: "+pivotColumn);
+            System.out.println("Pivot Column: " + pivotColumn);
 
             // step 3 | find departing value
             float[] ratios = calculateRatios(pivotColumn);
@@ -75,7 +76,7 @@ public class Simplex
             float[] pivotColumnVals = new float[cols];
             float[] rowNew = new float[cols];
 
-            // divide all entries in pivot row by entry inpivot column
+            // divide all entries in pivot row by entry in pivot column
             // get entry in pivot row
             System.arraycopy(table[pivotRow], 0, pivotRowVals, 0, cols);
 
@@ -114,7 +115,7 @@ public class Simplex
                     positiveEntries[i] = 0;
                     allNegativeCount++;
                 }
-                //System.out.println(positiveEntries[i]);
+                System.out.println(positiveEntries[i]);
             }
 
             if(allNegativeCount == rows)
