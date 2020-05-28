@@ -17,5 +17,14 @@ public class EigenerSimplexTester {
         int spalte = e.highestValueInLastZEILE();
         System.out.println("Pivotzeile: " + zeile);
         System.out.println("Pivotspalte: " + spalte);
+        e.formNextTableau(zeile,spalte);
+        e.print();
+         zeile = e.pivotZeile();
+         spalte = e.highestValueInLastZEILE();
+        System.out.println("Pivotzeile: " + zeile);
+        System.out.println("Pivotspalte: " + spalte);
+        e.formNextTableau(zeile,spalte);
+        e.print();
+
     }
 }
