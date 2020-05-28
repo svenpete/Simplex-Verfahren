@@ -13,5 +13,6 @@ public class EigenerSimplexTester {
         };
         e.fillTable(standardized);
         e.print();
+        float es =e.highestValueInLastColumn(standardized);
     }
 }
