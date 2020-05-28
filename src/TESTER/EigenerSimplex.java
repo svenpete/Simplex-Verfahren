@@ -2,6 +2,7 @@ package TESTER;
 
 public class EigenerSimplex {
     private int spalte, zeile; // row and column
+    private int pivotSpalte;
     private float[][] table; // simplex tableau
     private boolean solutionIsUnbounded = false;
 
@@ -36,12 +37,36 @@ public class EigenerSimplex {
             System.arraycopy(data[i], 0, this.table[i], 0, data[i].length);
         }
     }
-    public float highestValueInLastColumn(float[][] table)
+    public int highestValueInLastZEILE()
     {
+        float highestValue = 0;
         // nicht relevant da hier nur letzte spalte nicht betrachtet werden muss
         for (int i = 0; i < spalte - 1; i++) {
-            System.out.println(table[zeile][i]);
+            if ( Math.abs(table[zeile - 1][i] )> highestValue)
+            {
+                highestValue = Math.abs(table[zeile - 1][i]);
+                pivotSpalte = i;
+
+
+            }
+
         }
-        return (float) 0.00;
+
+        return pivotSpalte;
+    }
+
+
+    public float pivotZeile()
+    {
+        float[] pivotSpalteWerte = new float[zeile - 1 ];
+        float[] letztSpalte =  new float[zeile - 1];
+
+        for (int i = 0; i < zeile; i++) {
+           pivotSpalteWerte[i] = table[i][highestValueInLastZEILE()];
+           letztSpalte[i] = table[i][spalte - 1];
+            System.out.println(letztSpalte[i]);
+            System.out.println( pivotSpalteWerte[i]);
+        }
+    return (float) 1.00;
     }
 }
