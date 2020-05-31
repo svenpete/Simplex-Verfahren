@@ -46,7 +46,6 @@ public class EigenerSimplex {
 
     public int höchsterWertDerLetztenZeile() {
         float highestValue = 0;
-        // nicht relevant da hier nur letzte spalte nicht betrachtet werden muss
         for (int i = 0; i < spalte-zeile; i++) {
             if (Math.abs(table[zeile - 1][i]) > highestValue) {
                 highestValue = Math.abs(table[zeile - 1][i]);
@@ -79,16 +78,16 @@ public class EigenerSimplex {
             }
 
         }
-        System.out.println("Das Element ist:"+ table[pivotZeile][pivotSpalte]);
         return pivotZeile;
     }
     // Forms a new tableau from precomuted values.
     public void erstelleNeueTabelle(int pivotZeile, int pivotSpalte)
     {
         float pivotElement = table[pivotZeile][pivotSpalte];
+        float[] pivotSpaltenWerte = new float[zeile];
         float[] pivotZeilenWerte = new float[spalte];
-        float[] neueZeile = new float[spalte];
         float[] neueZeilefuePivotZeile = new float[spalte];
+        float[][] transfer  = new float[zeile][spalte];
 
         //Pivotzeile wird berechnet Anfang
 
@@ -98,12 +97,19 @@ public class EigenerSimplex {
         {
             neueZeilefuePivotZeile[i] = pivotZeilenWerte[i] /pivotElement;
         }
-        System.arraycopy(neueZeilefuePivotZeile,0,pivotZeilenWerte,0,spalte);
-
         //PivotZeile wird berechnet Ende
 
-        //TODO
-        //für andere Elemente muss es noch ergänzt werden
+        for (int i=0;i<zeile;i++)
+        {
+            pivotSpaltenWerte[i] = table[i][pivotSpalte];
+            for (int j=0;j<spalte;j++)
+            {
+                transfer[i][j] = table[i][j]- pivotSpaltenWerte[i]/pivotElement*pivotZeilenWerte[j];
+                table[i][j] = transfer[i][j];
+            }
+        }
+        System.arraycopy(neueZeilefuePivotZeile,0,table[pivotZeile],0,spalte);
+
     }
 
 
@@ -113,21 +119,22 @@ public class EigenerSimplex {
         //Überprüfung ob  Tabelle bereits optimal ist.
         if (checkIfOptimal())
         {
-            System.out.println(Error.STRING_IS_OPTIMAL);
+            //System.out.println(Error.STRING_IS_OPTIMAL);
             return Error.STRING_IS_OPTIMAL;
         }
 
         //Ermittlung der Pivotspalte
         int spalte = höchsterWertDerLetztenZeile();
 
+
         //Ermitllung des Pivotelements
         int zeile = pivotZeile();
-
+        System.out.println("Das Pivotelement ist:" +table[zeile][spalte]);
         //Erstellung der neuen Tabelle
         erstelleNeueTabelle(zeile,spalte);
+        print();
 
-
-        System.out.println(Error.STRING_NOT_OPTIMAL);
+       // System.out.println(Error.STRING_NOT_OPTIMAL);
         return Error.STRING_NOT_OPTIMAL;
     }
 

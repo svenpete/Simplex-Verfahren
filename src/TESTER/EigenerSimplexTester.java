@@ -1,17 +1,18 @@
 package TESTER;
 
-import SimplexFunktioniert.Model.Simplex;
-
 public class EigenerSimplexTester {
 
     public static void main(String[] args)
     {
         boolean quit = false;
-        EigenerSimplex e = new EigenerSimplex(2,4);
+        int i=0;
+        EigenerSimplex e = new EigenerSimplex(3,6);
         float[][] standardized =  {
-                { 1,   1,    1,  0,   4},
-                { 1,   3,    0,  1,   6},
-                {-3,  -5,    0,  0,   0}
+                {1,1,1,1,0,0,4},
+                {1,3,1,0,1,0,6},
+                {1,3,4,0,0,1,10},
+                {-3,-5,-4,0,0,0,0},
+
         };
 
         System.out.println("Dies ist die Ausgangsmatrix");
@@ -19,16 +20,17 @@ public class EigenerSimplexTester {
         e.fillTable(standardized);
         e.print();
         System.out.println("-------------------------------------");
-//        while(!quit)
+        while(!quit) {
+            i++;
 
-        Error error = e.berechneSimplex();
 
+           Error error = e.berechneSimplex();
+            System.out.println("-------------------------------------");
 
-            if (error == Error.STRING_IS_OPTIMAL)
-            {
-                e.print();
-                quit= true;
-            }
-
+           if (error == Error.STRING_IS_OPTIMAL) {
+               e.print();
+               quit = true;
+           }
+       }
     }
 }
