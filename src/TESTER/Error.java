@@ -1,6 +1,6 @@
 package TESTER;
 
-public enum ERROR
+public enum Error
 {
     STRING_NOT_OPTIMAL("NOT_OPTIMAL"),
     STRING_IS_OPTIMAL("IS_OPTIMAL"),
@@ -9,7 +9,7 @@ public enum ERROR
 
     private String errorString;
 
-    ERROR(String errorString) {
+    Error(String errorString) {
         this.errorString = errorString;
     }
 
