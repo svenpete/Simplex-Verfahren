@@ -25,10 +25,10 @@ public class tableController implements Initializable
 {
 
     ObservableList<Integer> constraintsList =
-            FXCollections.observableArrayList(1,2,3,4,5,6);
+            FXCollections.observableArrayList(2,3,4,5,6);
 
     ObservableList<Integer> variablesList =
-            FXCollections.observableArrayList(1,2,3,4,5,6);
+            FXCollections.observableArrayList(2,3,4,5,6);
 
     public static ObservableList<Variable> data_table;
 

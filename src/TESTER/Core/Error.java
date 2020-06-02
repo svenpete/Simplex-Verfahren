@@ -3,8 +3,7 @@ package TESTER.Core;
 public enum Error
 {
     STRING_NOT_OPTIMAL("NOT_OPTIMAL"),
-    STRING_IS_OPTIMAL("IS_OPTIMAL"),
-    STRING_UNBOUNDED("UNBOUNDED");
+    STRING_IS_OPTIMAL("IS_OPTIMAL");
 
 
     private String errorString;
@@ -13,7 +12,4 @@ public enum Error
         this.errorString = errorString;
     }
 
-    public String getErrorString() {
-        return errorString;
-    }
 }
