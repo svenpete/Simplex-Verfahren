@@ -1,4 +1,4 @@
-package TESTER;
+package SimplexFunktioniert.Core;
 
 public class EigenerSimplex {
     private int spalte, zeile; // row and column

@@ -1,4 +1,4 @@
-package TESTER;
+package TESTER.Core;
 
 public class EigenerSimplexTester {
 

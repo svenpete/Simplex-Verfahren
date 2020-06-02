@@ -1,4 +1,4 @@
-package TESTER;
+package SimplexFunktioniert.Core;
 
 public enum Error
 {

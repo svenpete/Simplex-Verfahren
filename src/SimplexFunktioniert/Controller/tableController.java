@@ -1,5 +1,6 @@
 package SimplexFunktioniert.Controller;
 
+import SimplexFunktioniert.Core.EigenerSimplexTester;
 import SimplexFunktioniert.Model.Variable;
 import SimplexFunktioniert.Model.Simplex;
 import SimplexFunktioniert.Model.SimplexTest;
@@ -110,11 +111,19 @@ public class tableController implements Initializable
         int count = 0;
         float[][] values = getTableVariables();
 
+
         if (checkInput(values))
         {
-            SimplexTest.calculate(new Simplex(constraints.getValue(), variables.getValue()), values);
+            for (int i = 0; i < values.length; i++) {
+                for (int j = 0; j < values[i].length; j++) {
+                    System.out.println(values[i][j]);
+                }
+                System.out.println();
+
+            }
 
         }
+        EigenerSimplexTester.berechne(constraints.getValue(),(variables.getValue() + variables.getValue()),values );
     }
 
     private void initTable(int colSize, int rowSize) {
@@ -134,49 +143,90 @@ public class tableController implements Initializable
             Integer columnCount = Integer.parseInt(String.valueOf(variables.getValue()));
 
 
-            float[][] variable = new float[rowCount][columnCount + 1];
+            float[][] variable = new float[rowCount][];
         for (int i = 0; i < rowCount ; i++)
         {
 
                 switch (variables.getValue()) {
                     case 1:
+
+                        variable[i] = new float[columnCount + 2];
                         variable[i][0] = Float.valueOf(tableItems.get(i).getX1());
-                        variable[i][1] = Float.valueOf(tableItems.get(i).getY1());
-                        break;
-                    case 2:
-                        variable[i][0] = Float.valueOf(tableItems.get(i).getX1());
-                        variable[i][1] = Float.valueOf(tableItems.get(i).getX2());
+
+                        variable[i][1] = Float.valueOf(tableItems.get(i).getS1());
+
                         variable[i][2] = Float.valueOf(tableItems.get(i).getY1());
                         break;
+                    case 2:
+
+                        variable[i] = new float[columnCount + 3];
+                        variable[i][0] = Float.valueOf(tableItems.get(i).getX1());
+                        variable[i][1] = Float.valueOf(tableItems.get(i).getX2());
+
+                        variable[i][2] = Float.valueOf(tableItems.get(i).getS1());
+                        variable[i][3] = Float.valueOf(tableItems.get(i).getS2());
+
+                        variable[i][4] = Float.valueOf(tableItems.get(i).getY1());
+                        break;
                     case 3:
+                        variable[i] = new float[columnCount + 4];
                         variable[i][0] = Float.valueOf(tableItems.get(i).getX1());
                         variable[i][1] = Float.valueOf(tableItems.get(i).getX2());
                         variable[i][2] = Float.valueOf(tableItems.get(i).getX3());
-                        variable[i][3] = Float.valueOf(tableItems.get(i).getY1());
+
+                        variable[i][3] = Float.valueOf(tableItems.get(i).getS1());
+                        variable[i][4] = Float.valueOf(tableItems.get(i).getS2());
+                        variable[i][5] = Float.valueOf(tableItems.get(i).getS3());
+
+                        variable[i][6] = Float.valueOf(tableItems.get(i).getY1());
                         break;
                     case 4:
+                        variable[i] = new float[columnCount + 5];
                         variable[i][0] = Float.valueOf(tableItems.get(i).getX1());
                         variable[i][1] = Float.valueOf(tableItems.get(i).getX2());
                         variable[i][2] = Float.valueOf(tableItems.get(i).getX3());
                         variable[i][3] = Float.valueOf(tableItems.get(i).getX4());
-                        variable[i][4] = Float.valueOf(tableItems.get(i).getY1());
+
+                        variable[i][4] = Float.valueOf(tableItems.get(i).getS1());
+                        variable[i][5] = Float.valueOf(tableItems.get(i).getS2());
+                        variable[i][6] = Float.valueOf(tableItems.get(i).getS3());
+                        variable[i][7] = Float.valueOf(tableItems.get(i).getS4());
+
+                        variable[i][8] = Float.valueOf(tableItems.get(i).getY1());
                         break;
                     case 5:
+                        variable[i] = new float[columnCount + 6];
                         variable[i][0] = Float.valueOf(tableItems.get(i).getX1());
                         variable[i][1] = Float.valueOf(tableItems.get(i).getX2());
                         variable[i][2] = Float.valueOf(tableItems.get(i).getX3());
                         variable[i][3] = Float.valueOf(tableItems.get(i).getX4());
                         variable[i][4] = Float.valueOf(tableItems.get(i).getX5());
-                        variable[i][5] = Float.valueOf(tableItems.get(i).getY1());
+
+                        variable[i][5] = Float.valueOf(tableItems.get(i).getS1());
+                        variable[i][6] = Float.valueOf(tableItems.get(i).getS2());
+                        variable[i][7] = Float.valueOf(tableItems.get(i).getS3());
+                        variable[i][8] = Float.valueOf(tableItems.get(i).getS4());
+                        variable[i][9] = Float.valueOf(tableItems.get(i).getS5());
+
+                        variable[i][10] = Float.valueOf(tableItems.get(i).getY1());
                         break;
                     case 6:
+                        variable[i] = new float[columnCount + 7];
                         variable[i][0] = Float.valueOf(tableItems.get(i).getX1());
                         variable[i][1] = Float.valueOf(tableItems.get(i).getX2());
                         variable[i][2] = Float.valueOf(tableItems.get(i).getX3());
                         variable[i][3] = Float.valueOf(tableItems.get(i).getX4());
                         variable[i][4] = Float.valueOf(tableItems.get(i).getX5());
                         variable[i][5] = Float.valueOf(tableItems.get(i).getX6());
-                        variable[i][6] = Float.valueOf(tableItems.get(i).getY1());
+
+                        variable[i][6] = Float.valueOf(tableItems.get(i).getS1());
+                        variable[i][7] = Float.valueOf(tableItems.get(i).getS2());
+                        variable[i][8] = Float.valueOf(tableItems.get(i).getS3());
+                        variable[i][9] = Float.valueOf(tableItems.get(i).getS4());
+                        variable[i][10] = Float.valueOf(tableItems.get(i).getS5());
+                        variable[i][11] = Float.valueOf(tableItems.get(i).getS6());
+
+                        variable[i][12] = Float.valueOf(tableItems.get(i).getY1());
                         break;
                     default:
                         throw new IllegalStateException("Unexpected value: " + variables.getValue());
@@ -892,44 +942,46 @@ public class tableController implements Initializable
             {
                 case 1 :
                     data_table.add(new Variable(
-                                    "1.00", "1.00","0.00"));
+                                    "0.00", "0.00","0.00"));
 
                     if (firstRun)
                     {
                         data_table.add(new Variable(
-                                "1.00", "1.00","0.00"));
+                                "0.00", "0.00","0.00"));
                         firstRun = false;
                     };
 
                     break;
 
                 case 2 :
-                    data_table.add(new Variable("1.00", "1.00", "1.00","0.00","0.00"));
+                    data_table.add(new Variable("0.00", "0.00", "0.00","0.00","0.00"));
 
                     if(firstRun)
                     {
-                        data_table.add(new Variable("1.00", "1.00", "1.00","0.00","0.00"));
+                        data_table.add(new Variable("0.00", "0.00", "0.00","0.00","0.00"));
                         firstRun = false;
                     }
                     break;
 
                 case 3 :
                     data_table.add(new Variable(
-                            "1.00", "2.00","3.00", "3.00","0.00","0.00","0.00"));
+                            "0.00", "0.00","0.00", "0.00","0.00","0.00","0.00"));
                     if(firstRun) {
                         data_table.add(new Variable(
-                                "1.00", "2.00", "3.00", "3.00","0.00","0.00","0.00"));
+                                "0.00", "0.00", "0.00", "0.00","0.00","0.00","0.00"));
                         firstRun = false;
                     }
                         break;
 
                 case 4 :
                     data_table.add(new Variable(
-                        "1.00", "2.00","3.00", "4.00",  "5.00","0.00","0.00","0.00","0.00"));
+                        "0.00", "0.00","0.00", "0.00",  "0.00","0.00","0.00","0.00",
+                            "0.00"));
 
                     if(firstRun) {
                         data_table.add(new Variable(
-                                "1.00", "2.00","3.00", "4.00",  "5.00","0.00","0.00","0.00","0.00"));
+                                "0.00", "0.00","0.00", "0.00",  "0.00","0.00","0.00",
+                                "0.00","0.00"));
                         firstRun = false;
                     }
 
@@ -937,22 +989,25 @@ public class tableController implements Initializable
 
                 case 5 :
                     data_table.add(new Variable(
-                            "1.00", "2.00","3.00", "4.00","3.00","2.00",  "5.00","0.00","0.00","0.00","0.00" ));
+                            "0.00", "0.00","0.00", "0.00","0.00","0.00",
+                            "0.00","0.00","0.00","0.00","0.00" ));
 
                     if(firstRun) {
-                        data_table.add(new Variable("1.00", "2.00","3.00", "4.00","3.00","2.00",  "5.00","0.00","0.00","0.00","0.00" ));
+                        data_table.add(new Variable("0.00", "0.00","0.00", "0.00","0.00","0.00",
+                                "0.00","0.00","0.00","0.00","0.00" ));
                         firstRun = false;
                     }
                     break;
 
                 case 6 :
-                    data_table.add(new Variable("1.00", "2.00", "3.00", "4.00",
-                            "5.00","6.00", "2.00","0.00","0.00","0.00","0.00","0.00","0.00"));
+                    data_table.add(new Variable("0.00", "0.00", "0.00", "0.00",
+                            "0.00","0.00", "0.00","0.00","0.00","0.00","0.00","0.00","0.00"));
 
                     if(firstRun)
                     {
-                        data_table.add(new Variable("1.00", "2.00", "3.00", "4.00",
-                                "5.00","6.00", "2.00","0.00","0.00","0.00","0.00","0.00","0.00"));
+                        data_table.add(new Variable("0.00", "0.00", "0.00", "0.00",
+                                "0.00","0.00", "0.00","0.00","0.00","0.00","0.00",
+                                "0.00","0.00"));
                         firstRun = false;
                     }
                     break;
@@ -964,7 +1019,6 @@ public class tableController implements Initializable
     }
 
     /**
-     *
      * @param o is the object to check for floating numbers
      * @return
      */
