@@ -1,35 +1,35 @@
 package SimplexFunktioniert.Core;
 
 public class EigenerSimplex {
-    private int spalte, zeile; // row and column
-    private int pivotSpalte;
+    private final int column, row; // row and column
+    private int pivotColumn;
     private float[][] table; // simplex tableau
-    private boolean solutionIsUnbounded = false;
+    // private boolean solutionIsUnbounded = false;
 
 
     /**
      * Konstruktor der Simplex Klasse
-     * @param zeile Zahl der benötigten Zeilen für die Tabelle, eine Zeile wird als Ergebniszeile
+     * @param row Zahl der benötigten Zeilen für die Tabelle, eine Zeile wird als Ergebniszeile
      *              hinzugefügt
-     * @param spalte ZAhl der benötigten Spalten für die Tabelle, eine Spalte wird ergänzt für
+     * @param column ZAhl der benötigten Spalten für die Tabelle, eine Spalte wird ergänzt für
      *               die späteren xyz Werte
      */
 
-    public EigenerSimplex(int zeile, int spalte) {
-        this.zeile = zeile + 1; // row number + 1
-        this.spalte = spalte + 1;   // column number + 1
-        table = new float[this.zeile][]; // create a 2d array
+    public EigenerSimplex(int row, int column) {
+        this.row = row + 1; // row number + 1
+        this.column = column + 1;   // column number + 1
+        table = new float[this.row][]; // create a 2d array
 
         // initialize references to arrays
-        for (int i = 0; i < this.zeile; i++) {
-            table[i] = new float[this.spalte];
+        for (int i = 0; i < this.row; i++) {
+            table[i] = new float[this.column];
         }
     }
 
-    // prints out the simplex tableau
+
     public void print() {
-        for (int i = 0; i < zeile; i++) {
-            for (int j = 0; j < spalte; j++) {
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < column; j++) {
                 String value = String.format("%.2f", table[i][j]);
                 System.out.print(value + "\t");
             }
@@ -37,83 +37,98 @@ public class EigenerSimplex {
         }
     }
 
-    // fills the simplex tableau with coefficients
     public void fillTable(float[][] data) {
         for (int i = 0; i < table.length; i++) {
             System.arraycopy(data[i], 0, this.table[i], 0, data[i].length);
         }
     }
 
-    public int höchsterWertDerLetztenZeile() {
+    /**
+     * Method calculate the highest abs Value in the last row, to find the PivotColumn
+     * @return pivotColumn, this return represents the tablecolumn
+     */
+    public int highestValueInLastRow() {
         float highestValue = 0;
-        for (int i = 0; i < spalte-zeile; i++) {
-            if (Math.abs(table[zeile - 1][i]) > highestValue) {
-                highestValue = Math.abs(table[zeile - 1][i]);
-                pivotSpalte = i;
+        for (int i = 0; i < column - row; i++) {
+            if (Math.abs(table[row - 1][i]) > highestValue) {
+                highestValue = Math.abs(table[row - 1][i]);
+                pivotColumn = i;
             }
         }
 
-        return pivotSpalte;
+        return pivotColumn;
     }
 
 
-    public int pivotZeile() {
-        float[] pivotSpalteWerte = new float[zeile - 1];
-        float[] letztSpalte = new float[zeile - 1];
-        float kleinsterWert = 0;
+    /**
+     * Method calculates the pivot row, dependent on the value of the pivotColumn
+     * @return  pivotRow, this return represents the tablerow
+     */
+    public int pivotRow() {
+        float[] pivotColumnValue = new float[row - 1];
+        float[] lastColumn = new float[row - 1];
+        float smallestValue = 0;
         float quotient;
-        int pivotZeile = 0;
-        for (int i = 0; i < zeile - 1; i++) {
+        int pivotRow = 0;
+        for (int i = 0; i < row - 1; i++) {
 
-            pivotSpalteWerte[i] = table[i][pivotSpalte];
-            letztSpalte[i] = table[i][spalte - 1];
-            quotient = letztSpalte[i] / pivotSpalteWerte[i];
+            pivotColumnValue[i] = table[i][pivotColumn];
+            lastColumn[i] = table[i][column - 1];
+            quotient = lastColumn[i] / pivotColumnValue[i];
             if (i == 0) {
-                kleinsterWert = quotient;
-                pivotZeile = i;
+                smallestValue = quotient;
+                pivotRow = i;
             }
-            if (quotient < kleinsterWert) {
-                kleinsterWert = quotient;
-                pivotZeile = i;
+            if (quotient < smallestValue) {
+                smallestValue = quotient;
+                pivotRow = i;
             }
 
         }
-        return pivotZeile;
+        return pivotRow;
     }
-    // Forms a new tableau from precomuted values.
-    public void erstelleNeueTabelle(int pivotZeile, int pivotSpalte)
+
+    /**
+     * This method determine the pivotElement for the current step, and calculates the values for the new Tableau
+     * @param pivotRow tablerow
+     * @param pivotColumn tablecolum
+     */
+    public void formNewTableau(int pivotRow, int pivotColumn)
     {
-        float pivotElement = table[pivotZeile][pivotSpalte];
-        float[] pivotSpaltenWerte = new float[zeile];
-        float[] pivotZeilenWerte = new float[spalte];
-        float[] neueZeilefuePivotZeile = new float[spalte];
-        float[][] transfer  = new float[zeile][spalte];
+        float pivotElement = table[pivotRow][pivotColumn];
+        float[] pivotColumnValue = new float[row];
+        float[] pivotRowValue = new float[column];
+        float[] newRowForPivotRow = new float[column];
+        float[][] transfer  = new float[row][column];
 
-        //Pivotzeile wird berechnet Anfang
+        //Calculation for the pivot Row Start
 
-        System.arraycopy(table[pivotZeile],0, pivotZeilenWerte,0,spalte);
+        System.arraycopy(table[pivotRow],0, pivotRowValue,0, column);
 
-        for (int i=0;i<spalte;i++)
+        for (int i = 0; i< column; i++)
         {
-            neueZeilefuePivotZeile[i] = pivotZeilenWerte[i] /pivotElement;
+            newRowForPivotRow[i] = pivotRowValue[i] /pivotElement;
         }
-        //PivotZeile wird berechnet Ende
+        //Calculation for the pivot Row End
 
-        for (int i=0;i<zeile;i++)
+        for (int i = 0; i< row; i++)
         {
-            pivotSpaltenWerte[i] = table[i][pivotSpalte];
-            for (int j=0;j<spalte;j++)
+            pivotColumnValue[i] = table[i][pivotColumn];
+            for (int j = 0; j< column; j++)
             {
-                transfer[i][j] = table[i][j]- pivotSpaltenWerte[i]/pivotElement*pivotZeilenWerte[j];
+                transfer[i][j] = table[i][j]- pivotColumnValue[i]/pivotElement*pivotRowValue[j];
                 table[i][j] = transfer[i][j];
             }
         }
-        System.arraycopy(neueZeilefuePivotZeile,0,table[pivotZeile],0,spalte);
+        System.arraycopy(newRowForPivotRow,0,table[pivotRow],0, column);
 
     }
 
 
-
+    /**
+     * Die Methode, welche solange durchläuft bis der Simplex optimal ist, hier wird die Methode für die Neuberechnung der Tabelle gestartet
+     * @return the enumeration String IS OPTIMAL or String NOT OPTIMAL
+     */
     public Error berechneSimplex()
     {
         //Überprüfung ob  Tabelle bereits optimal ist.
@@ -124,14 +139,14 @@ public class EigenerSimplex {
         }
 
         //Ermittlung der Pivotspalte
-        int spalte = höchsterWertDerLetztenZeile();
+        int spalte = highestValueInLastRow();
 
 
         //Ermitllung des Pivotelements
-        int zeile = pivotZeile();
+        int zeile = pivotRow();
         System.out.println("Das Pivotelement ist:" +table[zeile][spalte]);
         //Erstellung der neuen Tabelle
-        erstelleNeueTabelle(zeile,spalte);
+        formNewTableau(zeile,spalte);
         print();
 
        // System.out.println(Error.STRING_NOT_OPTIMAL);
@@ -147,17 +162,17 @@ public class EigenerSimplex {
     public boolean checkIfOptimal()
     {
         boolean isOptimal = false;
-        int zähler = 0;
-        for(int i=0;i<spalte-1;i++)
+        int counter = 0;
+        for(int i = 0; i< column -1; i++)
         {
-            float letzteZeileWert = table[zeile-1][i];
+            float letzteZeileWert = table[row -1][i];
            if (letzteZeileWert >=0)
             {
-                zähler++;
+                counter++;
             }
         }
 
-        if (zähler== spalte-1 )
+        if (counter== column -1 )
         {
             isOptimal= true;
         }
