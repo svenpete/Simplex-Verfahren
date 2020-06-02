@@ -96,6 +96,7 @@ public class tableController implements Initializable
     @FXML
     void createTable(ActionEvent event) {
 
+
         initTable(variables.getValue(),constraints.getValue());
     }
 
@@ -114,21 +115,14 @@ public class tableController implements Initializable
 
         if (checkInput(values))
         {
-            for (int i = 0; i < values.length; i++) {
-                for (int j = 0; j < values[i].length; j++) {
-                    System.out.println(values[i][j]);
-                }
-                System.out.println();
-
-            }
-
+            EigenerSimplexTester.berechne(constraints.getValue(),(variables.getValue() + variables.getValue()),values );
         }
-        EigenerSimplexTester.berechne(constraints.getValue(),(variables.getValue() + variables.getValue()),values );
+
     }
 
-    private void initTable(int colSize, int rowSize) {
-
-        initColumns(colSize);
+    private void initTable(int colSize, int rowSize)
+    {
+        initColumns(colSize,rowSize);
         loadData(rowSize,colSize,true);
 
     }
@@ -244,9 +238,8 @@ public class tableController implements Initializable
     /** initialise columns
      * @param colSize needed for variables initialise
      */
-    private void initColumns(int colSize)
+    private void initColumns(int colSize, int NBB)
     {
-
 
         switch (colSize)
         {
@@ -254,27 +247,13 @@ public class tableController implements Initializable
                 col_x1.setCellValueFactory
                         (new PropertyValueFactory<>("x1"));
 
-                col_s1.setCellValueFactory(
-                        new PropertyValueFactory<>("s1"));
-
-
                 col_x1.setVisible(true);
                 col_x2.setVisible(false);
                 col_x3.setVisible(false);
                 col_x4.setVisible(false);
                 col_x5.setVisible(false);
                 col_x6.setVisible(false);
-
-                col_s1.setVisible(true);
-                col_s2.setVisible(false);
-                col_s3.setVisible(false);
-                col_s4.setVisible(false);
-                col_s5.setVisible(false);
-                col_s6.setVisible(false);
-
-
                 break;
-
 
             case 2:
                 col_x1.setCellValueFactory
@@ -284,28 +263,12 @@ public class tableController implements Initializable
                 col_x2.setCellValueFactory
                         (new PropertyValueFactory<>("x2"));
 
-
-                col_s1.setCellValueFactory(
-                        new PropertyValueFactory<>("s1")
-                );
-
-                col_s2.setCellValueFactory(
-                        new PropertyValueFactory<>("s2")
-                );
-
                 col_x1.setVisible(true);
                 col_x2.setVisible(true);
                 col_x3.setVisible(false);
                 col_x4.setVisible(false);
                 col_x5.setVisible(false);
                 col_x6.setVisible(false);
-
-                col_s1.setVisible(true);
-                col_s2.setVisible(true);
-                col_s3.setVisible(false);
-                col_s4.setVisible(false);
-                col_s5.setVisible(false);
-                col_s6.setVisible(false);
                 break;
 
             case 3:
@@ -319,15 +282,6 @@ public class tableController implements Initializable
                         (new PropertyValueFactory<>("x3"));
 
 
-                col_s1.setCellValueFactory
-                        (new PropertyValueFactory<>("s1"));
-
-                col_s2.setCellValueFactory
-                        (new PropertyValueFactory<>("s2"));
-
-                col_s3.setCellValueFactory
-                        (new PropertyValueFactory<>("s3"));
-
                 col_x1.setVisible(true);
                 col_x2.setVisible(true);
                 col_x3.setVisible(true);
@@ -335,12 +289,6 @@ public class tableController implements Initializable
                 col_x5.setVisible(false);
                 col_x6.setVisible(false);
 
-                col_s1.setVisible(true);
-                col_s2.setVisible(true);
-                col_s3.setVisible(true);
-                col_s4.setVisible(false);
-                col_s5.setVisible(false);
-                col_s6.setVisible(false);
                 break;
 
             case 4:
@@ -356,17 +304,6 @@ public class tableController implements Initializable
                 col_x4.setCellValueFactory
                         (new PropertyValueFactory<>("x4"));
 
-                col_s1.setCellValueFactory
-                        (new PropertyValueFactory<>("s1"));
-
-                col_s2.setCellValueFactory
-                        (new PropertyValueFactory<>("s2"));
-
-                col_s3.setCellValueFactory
-                        (new PropertyValueFactory<>("s3"));
-
-                col_s4.setCellValueFactory
-                        (new PropertyValueFactory<>("s4"));
 
 
 
@@ -376,13 +313,6 @@ public class tableController implements Initializable
                 col_x4.setVisible(true);
                 col_x5.setVisible(false);
                 col_x6.setVisible(false);
-
-                col_s1.setVisible(true);
-                col_s2.setVisible(true);
-                col_s3.setVisible(true);
-                col_s4.setVisible(true);
-                col_s5.setVisible(false);
-                col_s6.setVisible(false);
                 break;
 
             case 5:
@@ -401,35 +331,12 @@ public class tableController implements Initializable
                 col_x5.setCellValueFactory
                         (new PropertyValueFactory<>("x5"));
 
-
-                col_s1.setCellValueFactory
-                        (new PropertyValueFactory<>("s1"));
-
-                col_s2.setCellValueFactory
-                        (new PropertyValueFactory<>("s2"));
-
-                col_s3.setCellValueFactory
-                        (new PropertyValueFactory<>("s3"));
-
-                col_s4.setCellValueFactory
-                        (new PropertyValueFactory<>("s4"));
-
-                col_s5.setCellValueFactory
-                        (new PropertyValueFactory<>("s5"));
-
                 col_x1.setVisible(true);
                 col_x2.setVisible(true);
                 col_x3.setVisible(true);
                 col_x4.setVisible(true);
                 col_x5.setVisible(true);
                 col_x6.setVisible(false);
-
-                col_s1.setVisible(true);
-                col_s2.setVisible(true);
-                col_s3.setVisible(true);
-                col_s4.setVisible(true);
-                col_s5.setVisible(true);
-                col_s6.setVisible(false);
                 break;
 
             case 6:
@@ -451,23 +358,7 @@ public class tableController implements Initializable
                 col_x6.setCellValueFactory
                         (new PropertyValueFactory<>("x6"));
 
-                col_s1.setCellValueFactory
-                        (new PropertyValueFactory<>("s1"));
 
-                col_s2.setCellValueFactory
-                        (new PropertyValueFactory<>("s2"));
-
-                col_s3.setCellValueFactory
-                        (new PropertyValueFactory<>("s3"));
-
-                col_s4.setCellValueFactory
-                        (new PropertyValueFactory<>("s4"));
-
-                col_s5.setCellValueFactory
-                        (new PropertyValueFactory<>("s5"));
-
-                col_s6.setCellValueFactory
-                        (new PropertyValueFactory<>("s6"));
 
                 col_x1.setVisible(true);
                 col_x2.setVisible(true);
@@ -485,6 +376,126 @@ public class tableController implements Initializable
                 break;
 
         }
+        switch (NBB)
+        {
+            case 1 :
+                col_s1.setCellValueFactory
+                        (new PropertyValueFactory<>("s1"));
+
+                col_s1.setVisible(true);
+                col_s2.setVisible(false);
+                col_s3.setVisible(false);
+                col_s4.setVisible(false);
+                col_s5.setVisible(false);
+                col_s6.setVisible(false);
+                break;
+
+            case 2 :
+
+                col_s1.setCellValueFactory
+                        (new PropertyValueFactory<>("s1"));
+
+                col_s2.setCellValueFactory
+                        (new PropertyValueFactory<>("s2"));
+
+                col_s1.setVisible(true);
+                col_s2.setVisible(true);
+                col_s3.setVisible(false);
+                col_s4.setVisible(false);
+                col_s5.setVisible(false);
+                col_s6.setVisible(false);
+
+                break;
+
+            case 3 :
+                col_s1.setCellValueFactory
+                        (new PropertyValueFactory<>("s1"));
+
+                col_s2.setCellValueFactory
+                        (new PropertyValueFactory<>("s2"));
+
+                col_s3.setCellValueFactory
+                        (new PropertyValueFactory<>("s3"));
+
+                col_s1.setVisible(true);
+                col_s2.setVisible(true);
+                col_s3.setVisible(true);
+                col_s4.setVisible(false);
+                col_s5.setVisible(false);
+                col_s6.setVisible(false);
+                break;
+
+            case 4:  col_s1.setCellValueFactory
+                    (new PropertyValueFactory<>("s1"));
+
+                col_s2.setCellValueFactory
+                        (new PropertyValueFactory<>("s2"));
+
+                col_s3.setCellValueFactory
+                        (new PropertyValueFactory<>("s3"));
+
+                col_s4.setCellValueFactory
+                        (new PropertyValueFactory<>("s4"));
+
+                col_s1.setVisible(true);
+                col_s2.setVisible(true);
+                col_s3.setVisible(true);
+                col_s4.setVisible(true);
+                col_s5.setVisible(false);
+                col_s6.setVisible(false);
+                break;
+
+            case 5:
+                col_s1.setCellValueFactory
+                    (new PropertyValueFactory<>("s1"));
+
+                col_s2.setCellValueFactory
+                        (new PropertyValueFactory<>("s2"));
+
+                col_s3.setCellValueFactory
+                        (new PropertyValueFactory<>("s3"));
+
+                col_s4.setCellValueFactory
+                        (new PropertyValueFactory<>("s4"));
+
+                col_s5.setCellValueFactory
+                        (new PropertyValueFactory<>("s5"));
+
+                col_s1.setVisible(true);
+                col_s2.setVisible(true);
+                col_s3.setVisible(true);
+                col_s4.setVisible(true);
+                col_s5.setVisible(true);
+                col_s6.setVisible(false);
+                break;
+
+            case 6:
+                col_s1.setCellValueFactory
+                    (new PropertyValueFactory<>("s1"));
+
+                col_s2.setCellValueFactory
+                        (new PropertyValueFactory<>("s2"));
+
+                col_s3.setCellValueFactory
+                        (new PropertyValueFactory<>("s3"));
+
+                col_s4.setCellValueFactory
+                        (new PropertyValueFactory<>("s4"));
+
+                col_s5.setCellValueFactory
+                        (new PropertyValueFactory<>("s5"));
+
+                col_s6.setCellValueFactory
+                        (new PropertyValueFactory<>("s6"));
+
+                col_s1.setVisible(true);
+                col_s2.setVisible(true);
+                col_s3.setVisible(true);
+                col_s4.setVisible(true);
+                col_s5.setVisible(true);
+                col_s6.setVisible(true);
+                break;
+        }
 
         col_y1.setCellValueFactory(new PropertyValueFactory<>("y1"));
         col_y1.setVisible(true);
@@ -496,6 +507,7 @@ public class tableController implements Initializable
 
         editableCols(colSize);
     }
+
 
     /**
      * makes each cell in a given table editable und stores their new data

@@ -1,8 +1,7 @@
 package SimplexFunktioniert.Core;
 
 public class EigenerSimplexTester {
-    public EigenerSimplexTester() {
-    }
+
 
     public static void berechne(int zeile, int spalte, float[][] test)
     {

@@ -146,27 +146,27 @@ public class Variable
     {
         switch (pos)
         {
-            case 1 :
+            case 0 :
                 this.s1 ="1.00";
                 break;
 
-            case 2 :
+            case 1 :
                 this.s2 = "1.00";
                 break;
 
-            case 3:
+            case 2:
                 this.s3 = "1.00";
                 break;
 
-            case 4 :
+            case 3 :
                 this.s4 ="1.00";
                 break;
 
-            case 5 :
+            case 4 :
                 this.s5 ="1.00";
                 break;
 
-            case 6 :
+            case 5 :
                 this.s6 = "1.00";
                 break;
         }
