@@ -16,6 +16,7 @@ public class EigenerSimplexTester {
 
         };
 
+
         System.out.println("Dies ist die Ausgangsmatrix");
         System.out.println("-------------------------------------");
         System.out.println("Test");
