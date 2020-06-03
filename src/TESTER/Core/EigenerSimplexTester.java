@@ -6,12 +6,13 @@ public class EigenerSimplexTester {
     {
         boolean quit = false;
         int i=0;
-        EigenerSimplex e = new EigenerSimplex(3,6);
+        EigenerSimplex e = new EigenerSimplex(4,7);
         float[][] standardized =  {
-                {1,1,1,1,0,0,4},
-                {1,3,1,0,1,0,6},
-                {1,3,4,0,0,1,10},
-                {-3,-5,-4,0,0,0,0},
+                {1,1,1,1,0,0,0,4},
+                {1,3,1,0,1,0,0,6},
+                {1,3,4,0,0,1,0,10},
+                {1,3,4,0,0,0,1,10},
+                {-3,-5,-4,0,0,0,0,0},
 
         };
 
