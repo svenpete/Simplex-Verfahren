@@ -2,8 +2,6 @@ package SimplexFunktioniert.Controller;
 
 import SimplexFunktioniert.Core.EigenerSimplexTester;
 import SimplexFunktioniert.Model.Variable;
-import SimplexFunktioniert.Model.Simplex;
-import SimplexFunktioniert.Model.SimplexTest;
 import SimplexFunktioniert.View.AlertBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
