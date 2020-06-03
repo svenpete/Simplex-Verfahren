@@ -123,19 +123,19 @@
                               <Label text="1. Schritt" />
                               <TableView fx:id="table_info1" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <columns>
-                                    <TableColumn fx:id="col_x11" prefWidth="75.0" text="x1" />
-                                    <TableColumn fx:id="col_x21" prefWidth="75.0" text="x2" />
-                                    <TableColumn fx:id="col_x31" prefWidth="75.0" text="x3" />
-                                    <TableColumn fx:id="col_x41" prefWidth="75.0" text="x4" />
-                                    <TableColumn fx:id="col_x51" prefWidth="75.0" text="x5" />
-                                    <TableColumn fx:id="col_x61" prefWidth="75.0" text="x6" />
-                                    <TableColumn fx:id="col_s11" prefWidth="75.0" text="s1" />
-                                    <TableColumn fx:id="col_s21" prefWidth="75.0" text="s2" />
-                                    <TableColumn fx:id="col_s31" prefWidth="75.0" text="s3" />
-                                    <TableColumn fx:id="col_s41" prefWidth="75.0" text="s4" />
-                                    <TableColumn fx:id="col_s51" prefWidth="75.0" text="s5" />
-                                    <TableColumn fx:id="col_s61" prefWidth="75.0" text="s6" />
-                                    <TableColumn fx:id="col_y11" prefWidth="75.0" text="y1" />
+                                    <TableColumn fx:id="col_x1" prefWidth="75.0" text="x1" />
+                                    <TableColumn fx:id="col_x1" prefWidth="75.0" text="x2" />
+                                    <TableColumn fx:id="col_x1" prefWidth="75.0" text="x3" />
+                                    <TableColumn fx:id="col_x1" prefWidth="75.0" text="x4" />
+                                    <TableColumn fx:id="col_x1" prefWidth="75.0" text="x5" />
+                                    <TableColumn fx:id="col_x1" prefWidth="75.0" text="x6" />
+                                    <TableColumn fx:id="col_s1" prefWidth="75.0" text="s1" />
+                                    <TableColumn fx:id="col_s1" prefWidth="75.0" text="s2" />
+                                    <TableColumn fx:id="col_s1" prefWidth="75.0" text="s3" />
+                                    <TableColumn fx:id="col_s1" prefWidth="75.0" text="s4" />
+                                    <TableColumn fx:id="col_s1" prefWidth="75.0" text="s5" />
+                                    <TableColumn fx:id="col_s1" prefWidth="75.0" text="s6" />
+                                    <TableColumn fx:id="col_y1" prefWidth="75.0" text="y1" />
                                  </columns>
                               </TableView>
                               <Label text="2. Schritt" />
