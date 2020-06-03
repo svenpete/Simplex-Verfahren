@@ -24,14 +24,6 @@ public class Variable
         this.s5 = s5;
         this.s6 = s6;
 
-        if (counter < 6) {
-            setSchlupfVar(counter);
-            counter++;
-
-            if (counter == 6)
-                counter = 0;
-        }
-
 
     }
 
@@ -50,13 +42,6 @@ public class Variable
         this.s4 = s4;
         this.s5 = s5;
 
-        if (counter < 5) {
-            setSchlupfVar(counter);
-            counter++;
-
-            if (counter == 5)
-                counter = 0;
-        }
 
     }
 
@@ -73,13 +58,7 @@ public class Variable
         this.s4 = s4;
 
 
-        if (counter < 4) {
-            setSchlupfVar(counter);
-            counter++;
 
-            if (counter == 4)
-                counter = 0;
-        }
 
     }
 
@@ -94,13 +73,7 @@ public class Variable
         this.s3 = s3;
 
 
-        if (counter < 3) {
-            setSchlupfVar(counter);
-            counter++;
 
-            if (counter == 3)
-                counter = 0;
-        }
     }
 
     public Variable(String x1, String x2,  String y1, String s1, String s2) {
@@ -113,64 +86,19 @@ public class Variable
 
 
 
-        if (counter < 2) {
-            setSchlupfVar(counter);
-            counter++;
 
-            if (counter == 2)
-                counter = 0;
-        }
     }
 
     public Variable(String x1,  String y1,String s1)
     {
         this.x1 = x1;
         this.y1 = y1;
-
         this.s1 = s1;
 
-
-        if (counter < 1) {
-            setSchlupfVar(counter);
-            counter++;
-
-            if (counter == 1)
-                counter = 0;
-        }
     }
 
 
 
-
-    public void setSchlupfVar(Integer pos)
-    {
-        switch (pos)
-        {
-            case 0 :
-                this.s1 ="1.00";
-                break;
-
-            case 1 :
-                this.s2 = "1.00";
-                break;
-
-            case 2:
-                this.s3 = "1.00";
-                break;
-
-            case 3 :
-                this.s4 ="1.00";
-                break;
-
-            case 4 :
-                this.s5 ="1.00";
-                break;
-
-            case 5 :
-                this.s6 = "1.00";
-                break;
-        }
-    }
 
     public String getX1() {
         return x1;

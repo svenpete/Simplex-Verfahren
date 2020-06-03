@@ -20,11 +20,9 @@ public class EigenerSimplex {
 
 
     /**
-     * Konstruktor der Simplex Klasse
-     * @param row Zahl der benötigten Zeilen für die Tabelle, eine Zeile wird als Ergebniszeile
-     *              hinzugefügt
-     * @param column ZAhl der benötigten Spalten für die Tabelle, eine Spalte wird ergänzt für
-     *               die späteren xyz Werte
+     * Constructor of Simplex
+     * @param row Number of the needed row for the table, one row is added for the results
+     * @param column Number of the needed columns for the table, one column is added for the later values
      */
 
     public EigenerSimplex(int row, int column) {
@@ -213,10 +211,10 @@ public class EigenerSimplex {
 
 
     /**
-     * Die Methode, welche solange durchläuft bis der Simplex optimal ist, hier wird die Methode für die Neuberechnung der Tabelle gestartet
+     * Method, which iterate for the duration until the Simplex is optimal
      * @return the enumeration String IS OPTIMAL or String NOT OPTIMAL
      */
-    public Error berechneSimplex()
+    public Error calcSimplex()
     {
         //Überprüfung ob  Tabelle bereits optimal ist.
         if (checkIfOptimal())
