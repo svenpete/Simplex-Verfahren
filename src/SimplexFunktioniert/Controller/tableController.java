@@ -1,5 +1,6 @@
 package SimplexFunktioniert.Controller;
 
+import SimplexFunktioniert.Core.EigenerSimplex;
 import SimplexFunktioniert.Core.EigenerSimplexTester;
 import SimplexFunktioniert.Model.Variable;
 import SimplexFunktioniert.View.AlertBox;
@@ -19,6 +20,7 @@ import java.util.ResourceBundle;
 public class tableController implements Initializable
 {
 
+
     ObservableList<Integer> constraintsList =
             FXCollections.observableArrayList(2,3,4,5,6);
 
@@ -35,7 +37,6 @@ public class tableController implements Initializable
 
     @FXML
     private TableView<Variable> table_info;
-
 
 
     @FXML
@@ -80,7 +81,17 @@ public class tableController implements Initializable
     @FXML
     private TableColumn<Variable, String> col_s6;
 
+    @FXML
+    private TextArea output_1;
 
+    @FXML
+    private TextArea output_2;
+
+    @FXML
+    private TextArea output_3;
+
+    @FXML
+    private TextArea output_4;
 
     @FXML
     private Button compute;
@@ -113,14 +124,54 @@ public class tableController implements Initializable
      */
     @FXML
     void compute(ActionEvent event){
-        int count = 0;
         float[][] values = getTableVariables();
 
 
         if (checkInput(values))
         {
             EigenerSimplexTester.berechne(constraints.getValue(),(variables.getValue() + variables.getValue()),values );
+
+
+           int counter = EigenerSimplex.getArrayCounter();
+            System.out.println("Static Test: "+counter);
+            for (int i = 1; i<= counter; i++){
+                String value ="";
+
+                switch (i){
+                    case 1:
+                        System.out.println("Test case 1");
+                        float[][] irgendwas1 = EigenerSimplex.getTable1();
+                        System.out.println("ZT1: "+irgendwas1[2][0]);
+                        for (int k = 0; k < irgendwas1.length; k++) {
+                            for (int j = 0; j < irgendwas1[0].length; j++) {
+                                value = value+"  "+ String.format("%.2f", irgendwas1[k][j]);
+
+                            }
+                            value = value+"\n";
+                        }
+                        fillData(value,i);
+                        break;
+                    case 2:
+                        System.out.println("Test case 2");
+                       float[][] irgendwas2 = EigenerSimplex.getTable2();
+                        System.out.println("ZT1: "+irgendwas2[2][0]);
+                        for (int k = 0; k < irgendwas2.length; k++) {
+                            for (int j = 0; j < irgendwas2[0].length; j++) {
+                                value = value+"  "+ String.format("%.2f", irgendwas2[k][j]);
+
+                            }
+                            value = value+"\n";
+                        }
+                        fillData(value,i);
+
+                        break;
+                }
+
         }
+
+
+        }
+
 
     }
 
@@ -1092,7 +1143,23 @@ public class tableController implements Initializable
         return inputValid;
     }
 
+    public  void fillData(String overgabe, int position){
+        switch (position){
+            case 1:
+                output_1.setText(overgabe);
+                break;
+            case 2:
+                output_2.setText(overgabe);
+                break;
+            case 3:
+                output_3.setText(overgabe);
+                break;
+            case 4:
+                output_4.setText(overgabe);
+                break;
+        }
+
+    }
 
 
- 
 }

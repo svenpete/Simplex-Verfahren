@@ -121,49 +121,14 @@
                         <VBox minHeight="1000.0" minWidth="525.0" prefHeight="200.0" prefWidth="100.0">
                            <children>
                               <Label text="1. Schritt" />
-                              <TableView minHeight="100.0" prefHeight="229.0" prefWidth="525.0">
-                                <columns>
-                                   <TableColumn prefWidth="75.0" text="x1" />
-                                   <TableColumn prefWidth="75.0" text="x2" />
-                                   <TableColumn prefWidth="75.0" text="x3" />
-                                   <TableColumn prefWidth="75.0" text="x4" />
-                                   <TableColumn prefWidth="75.0" text="x5" />
-                                   <TableColumn prefWidth="75.0" text="x6" />
-                                   <TableColumn prefWidth="75.0" text="edit" />
-                                </columns>
-                              </TableView>
+                              <TextArea fx:id="output_1" editable="false" prefHeight="200.0" prefWidth="200.0" />
                               <Label text="2. Schritt" />
-                              <TableView minHeight="100.0" prefHeight="200.0" prefWidth="200.0">
-                                <columns>
-                                   <TableColumn prefWidth="75.0" text="x1" />
-                                   <TableColumn prefWidth="75.0" text="x2" />
-                                   <TableColumn prefWidth="75.0" text="x3" />
-                                   <TableColumn prefWidth="75.0" text="x4" />
-                                   <TableColumn prefWidth="75.0" text="x5" />
-                                   <TableColumn prefWidth="75.0" text="x6" />
-                                   <TableColumn prefWidth="75.0" text="edit" />
-                                </columns>
-                              </TableView>
+                              <TextArea fx:id="output_2" editable="false" prefHeight="200.0" prefWidth="200.0" />
                               <Label text="3. Schritt" />
-                              <TableView minHeight="100.0" prefHeight="200.0" prefWidth="200.0">
-                                <columns>
-                                  <TableColumn prefWidth="75.0" text="C1" />
-                                  <TableColumn prefWidth="75.0" text="C2" />
-                                </columns>
-                              </TableView>
+                              <TextArea fx:id="output_3" editable="false" prefHeight="200.0" prefWidth="200.0" />
                               <Label text="4. Schritt" />
-                              <TableView minHeight="100.0" prefHeight="200.0" prefWidth="200.0">
-                                <columns>
-                                   <TableColumn prefWidth="75.0" text="x1" />
-                                   <TableColumn prefWidth="75.0" text="x2" />
-                                   <TableColumn prefWidth="75.0" text="x3" />
-                                   <TableColumn prefWidth="75.0" text="x4" />
-                                   <TableColumn prefWidth="75.0" text="x5" />
-                                   <TableColumn prefWidth="75.0" text="x6" />
-                                   <TableColumn prefWidth="75.0" text="edit" />
-                                </columns>
-                              </TableView>
-                              <TextArea fx:id="output_1" prefHeight="200.0" prefWidth="200.0" />
+                              <TextArea fx:id="output_4" editable="false" prefHeight="200.0" prefWidth="200.0" />
+
                            </children></VBox>
                      </children>
                   </AnchorPane>

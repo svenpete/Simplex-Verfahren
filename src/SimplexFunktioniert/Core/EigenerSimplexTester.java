@@ -21,7 +21,11 @@ public class EigenerSimplexTester {
             i++;
 
 
+
+
            Error error = e.calcSimplex();
+          /*  float[][] test1 = e.getTable1();
+            System.out.println(test1[2][0]);*/
             System.out.println("-------------------------------------");
 
            if (error == Error.STRING_IS_OPTIMAL) {
