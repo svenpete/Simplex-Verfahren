@@ -3,7 +3,7 @@ package SimplexFunktioniert.Core;
 public class EigenerSimplexTester {
 
 
-    public static void berechne(int zeile, int spalte, float[][] test)
+    public static float[][] berechne(int zeile, int spalte, float[][] test)
     {
         boolean quit = false;
         int i=0;
@@ -13,19 +13,19 @@ public class EigenerSimplexTester {
 
         System.out.println("Dies ist die Ausgangsmatrix");
         System.out.println("-------------------------------------");
-        System.out.println("Test");
+        //System.out.println("Test");
         e.fillTable(test);
         e.print();
         System.out.println("-------------------------------------");
+        float[][] test1 = null;
         while(!quit) {
             i++;
 
-
-
-
            Error error = e.calcSimplex();
-          /*  float[][] test1 = e.getTable1();
-            System.out.println(test1[2][0]);*/
+           if(i==1) {
+               test1 = e.getTable1();
+           }
+            System.out.println(test1[2][0]);
             System.out.println("-------------------------------------");
 
            if (error == Error.STRING_IS_OPTIMAL) {
@@ -33,5 +33,7 @@ public class EigenerSimplexTester {
                quit = true;
            }
        }
+        return test1;
+
     }
 }

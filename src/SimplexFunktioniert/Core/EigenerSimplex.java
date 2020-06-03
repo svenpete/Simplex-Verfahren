@@ -101,8 +101,6 @@ public class EigenerSimplex {
     }
 
 
-
-
     /**
      * This method determine the pivotElement for the current step, and calculates the values for the new Tableau
      * @param pivotRow tablerow

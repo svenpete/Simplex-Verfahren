@@ -129,8 +129,9 @@ public class tableController implements Initializable
 
         if (checkInput(values))
         {
-            EigenerSimplexTester.berechne(constraints.getValue(),(variables.getValue() + variables.getValue()),values );
+            float[][] table = EigenerSimplexTester.berechne(constraints.getValue(),(variables.getValue() + variables.getValue()),values );
 
+            System.out.println(table[2][0]);
 
            int counter = EigenerSimplex.getArrayCounter();
             System.out.println("Static Test: "+counter);
@@ -140,7 +141,7 @@ public class tableController implements Initializable
                 switch (i){
                     case 1:
                         System.out.println("Test case 1");
-                        float[][] irgendwas1 = EigenerSimplex.getTable1();
+                        float[][] irgendwas1 = table;
                         System.out.println("ZT1: "+irgendwas1[2][0]);
                         for (int k = 0; k < irgendwas1.length; k++) {
                             for (int j = 0; j < irgendwas1[0].length; j++) {
