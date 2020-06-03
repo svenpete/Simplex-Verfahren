@@ -36,8 +36,7 @@ public class tableController implements Initializable
     @FXML
     private TableView<Variable> table_info;
 
-    @FXML
-    private TableView<Variable> table_info1;
+
 
     @FXML
     private TableColumn<Variable, String> col_x1;
@@ -1056,7 +1055,6 @@ public class tableController implements Initializable
 
         }
         table_info.setItems(data_table);
-        table_info1.setItems(data_table);
 
     }
 
