@@ -503,7 +503,7 @@ public class tableController implements Initializable
 
         col_update.setVisible(false);
 
-        editableCols(colSize);
+        editableCols(colSize,NBB);
     }
 
 
@@ -511,7 +511,7 @@ public class tableController implements Initializable
      * makes each cell in a given table editable und stores their new data
      * @param colSize to determine size of columns
      */
-    private void editableCols(int colSize) {
+    private void editableCols(int colSize, int NBB) {
         switch (colSize)
         {
             case 1:
@@ -524,20 +524,7 @@ public class tableController implements Initializable
                             getTablePosition().
                             getRow()).setX1(e.getNewValue());
                 });
-
-                col_s1.setCellFactory
-                        (TextFieldTableCell.forTableColumn());
-
-                col_s1.setOnEditCommit(e ->
-                {
-                    e.getTableView().getItems().get(e.
-                            getTablePosition().
-                            getRow()).setS1(e.getNewValue());
-                });
-
-
                 break;
-
 
             case 2:
 
@@ -560,25 +547,7 @@ public class tableController implements Initializable
                             getRow()).setX2(e.getNewValue());
                 });
 
-                col_s1.setCellFactory
-                        (TextFieldTableCell.forTableColumn());
 
-                col_s1.setOnEditCommit(e ->
-                {
-                    e.getTableView().getItems().get(e.
-                            getTablePosition().
-                            getRow()).setS1(e.getNewValue());
-                });
-
-                col_s2.setCellFactory
-                        (TextFieldTableCell.forTableColumn());
-
-                col_s2.setOnEditCommit(e ->
-                {
-                    e.getTableView().getItems().get(e.
-                            getTablePosition().
-                            getRow()).setS2(e.getNewValue());
-                });
                 break;
 
             case 3:
@@ -610,39 +579,6 @@ public class tableController implements Initializable
                             getTablePosition().
                             getRow()).setX3(e.getNewValue());
                 });
-
-                col_s1.setCellFactory
-                        (TextFieldTableCell.forTableColumn());
-
-                col_s1.setOnEditCommit(e ->
-                {
-                    e.getTableView().getItems().get(e.
-                            getTablePosition().
-                            getRow()).setS1(e.getNewValue());
-                });
-
-                col_s2.setCellFactory
-                        (TextFieldTableCell.forTableColumn());
-
-                col_s2.setOnEditCommit(e ->
-                {
-                    e.getTableView().getItems().get(e.
-                            getTablePosition().
-                            getRow()).setS2(e.getNewValue());
-                });
-
-
-                col_s3.setCellFactory
-                        (TextFieldTableCell.forTableColumn());
-
-                col_s3.setOnEditCommit(e ->
-                {
-                    e.getTableView().getItems().get(e.
-                            getTablePosition().
-                            getRow()).setS3(e.getNewValue());
-                });
-
-
                 break;
 
             case 4:
@@ -684,45 +620,7 @@ public class tableController implements Initializable
                             getRow()).setX4(e.getNewValue());
                 });
 
-                col_s1.setCellFactory
-                        (TextFieldTableCell.forTableColumn());
 
-                col_s1.setOnEditCommit(e ->
-                {
-                    e.getTableView().getItems().get(e.
-                            getTablePosition().
-                            getRow()).setS1(e.getNewValue());
-                });
-
-                col_s2.setCellFactory
-                        (TextFieldTableCell.forTableColumn());
-
-                col_s2.setOnEditCommit(e ->
-                {
-                    e.getTableView().getItems().get(e.
-                            getTablePosition().
-                            getRow()).setS2(e.getNewValue());
-                });
-
-
-                col_s3.setCellFactory
-                        (TextFieldTableCell.forTableColumn());
-
-                col_s3.setOnEditCommit(e ->
-                {
-                    e.getTableView().getItems().get(e.
-                            getTablePosition().
-                            getRow()).setS3(e.getNewValue());
-                });
-
-                col_s4.setCellFactory
-                        (TextFieldTableCell.forTableColumn());
-                col_s4.setOnEditCommit(e ->
-                {
-                    e.getTableView().getItems().get(e.
-                            getTablePosition().
-                            getRow()).setS4(e.getNewValue());
-                });
                 break;
 
             case 5:
@@ -770,54 +668,7 @@ public class tableController implements Initializable
                             getRow()).setX5(e.getNewValue());
                 });
 
-                    col_s1.setCellFactory
-                            (TextFieldTableCell.forTableColumn());
 
-                    col_s1.setOnEditCommit(e ->{
-                        e.getTableView().getItems().get(e.
-                                getTablePosition().
-                                getRow()).setS1(e.getNewValue());
-                    });
-
-                    col_s2.setCellFactory
-                            (TextFieldTableCell.forTableColumn());
-
-                    col_s2.setOnEditCommit(e ->
-                    {
-                        e.getTableView().getItems().get(e.
-                                getTablePosition().
-                                getRow()).setS2(e.getNewValue());
-                    });
-
-
-                    col_s3.setCellFactory
-                            (TextFieldTableCell.forTableColumn());
-
-                    col_s3.setOnEditCommit(e ->
-                    {
-                        e.getTableView().getItems().get(e.
-                                getTablePosition().
-                                getRow()).setS3(e.getNewValue());
-                    });
-
-                    col_s4.setCellFactory
-                            (TextFieldTableCell.forTableColumn());
-
-                    col_s4.setOnEditCommit(e ->
-                    {
-                        e.getTableView().getItems().get(e.
-                                getTablePosition().
-                                getRow()).setS4(e.getNewValue());
-                    });
-
-                    col_s5.setCellFactory
-                            (TextFieldTableCell.forTableColumn());
-
-                    col_s5.setOnEditCommit(e -> {
-                        e.getTableView().getItems().get(e.
-                                getTablePosition().
-                                getRow()).setS5(e.getNewValue());
-                    });
                 break;
 
             case 6:
@@ -873,7 +724,169 @@ public class tableController implements Initializable
                             getTablePosition().
                             getRow()).setX6(e.getNewValue());
                 });
+                break;
+        }
 
+        switch (NBB)
+        {
+            case 1 :
+                col_s1.setCellFactory
+                        (TextFieldTableCell.forTableColumn());
+
+                col_s1.setOnEditCommit(e ->
+                {
+                    e.getTableView().getItems().get(e.
+                            getTablePosition().
+                            getRow()).setS1(e.getNewValue());
+                });
+                break;
+
+            case 2:
+                col_s1.setCellFactory
+                        (TextFieldTableCell.forTableColumn());
+
+                col_s1.setOnEditCommit(e ->
+                {
+                    e.getTableView().getItems().get(e.
+                            getTablePosition().
+                            getRow()).setS1(e.getNewValue());
+                });
+
+                col_s2.setCellFactory
+                        (TextFieldTableCell.forTableColumn());
+
+                col_s2.setOnEditCommit(e ->
+                {
+                    e.getTableView().getItems().get(e.
+                            getTablePosition().
+                            getRow()).setS2(e.getNewValue());
+                });
+                break;
+
+            case 3:
+                col_s1.setCellFactory
+                        (TextFieldTableCell.forTableColumn());
+
+                col_s1.setOnEditCommit(e ->
+                {
+                    e.getTableView().getItems().get(e.
+                            getTablePosition().
+                            getRow()).setS1(e.getNewValue());
+                });
+
+                col_s2.setCellFactory
+                        (TextFieldTableCell.forTableColumn());
+
+                col_s2.setOnEditCommit(e ->
+                {
+                    e.getTableView().getItems().get(e.
+                            getTablePosition().
+                            getRow()).setS2(e.getNewValue());
+                });
+
+
+                col_s3.setCellFactory
+                        (TextFieldTableCell.forTableColumn());
+
+                col_s3.setOnEditCommit(e ->
+                {
+                    e.getTableView().getItems().get(e.
+                            getTablePosition().
+                            getRow()).setS3(e.getNewValue());
+                });
+                break;
+            case 4:
+                col_s1.setCellFactory
+                        (TextFieldTableCell.forTableColumn());
+
+                col_s1.setOnEditCommit(e ->
+                {
+                    e.getTableView().getItems().get(e.
+                            getTablePosition().
+                            getRow()).setS1(e.getNewValue());
+                });
+
+                col_s2.setCellFactory
+                        (TextFieldTableCell.forTableColumn());
+
+                col_s2.setOnEditCommit(e ->
+                {
+                    e.getTableView().getItems().get(e.
+                            getTablePosition().
+                            getRow()).setS2(e.getNewValue());
+                });
+
+
+                col_s3.setCellFactory
+                        (TextFieldTableCell.forTableColumn());
+
+                col_s3.setOnEditCommit(e ->
+                {
+                    e.getTableView().getItems().get(e.
+                            getTablePosition().
+                            getRow()).setS3(e.getNewValue());
+                });
+
+                col_s4.setCellFactory
+                        (TextFieldTableCell.forTableColumn());
+                col_s4.setOnEditCommit(e ->
+                {
+                    e.getTableView().getItems().get(e.
+                            getTablePosition().
+                            getRow()).setS4(e.getNewValue());
+                });
+                break;
+            case 5:
+                col_s1.setCellFactory
+                        (TextFieldTableCell.forTableColumn());
+
+                col_s1.setOnEditCommit(e ->{
+                    e.getTableView().getItems().get(e.
+                            getTablePosition().
+                            getRow()).setS1(e.getNewValue());
+                });
+
+                col_s2.setCellFactory
+                        (TextFieldTableCell.forTableColumn());
+
+                col_s2.setOnEditCommit(e ->
+                {
+                    e.getTableView().getItems().get(e.
+                            getTablePosition().
+                            getRow()).setS2(e.getNewValue());
+                });
+
+
+                col_s3.setCellFactory
+                        (TextFieldTableCell.forTableColumn());
+
+                col_s3.setOnEditCommit(e ->
+                {
+                    e.getTableView().getItems().get(e.
+                            getTablePosition().
+                            getRow()).setS3(e.getNewValue());
+                });
+
+                col_s4.setCellFactory
+                        (TextFieldTableCell.forTableColumn());
+
+                col_s4.setOnEditCommit(e ->
+                {
+                    e.getTableView().getItems().get(e.
+                            getTablePosition().
+                            getRow()).setS4(e.getNewValue());
+                });
+
+                col_s5.setCellFactory
+                        (TextFieldTableCell.forTableColumn());
+
+                col_s5.setOnEditCommit(e -> {
+                    e.getTableView().getItems().get(e.
+                            getTablePosition().
+                            getRow()).setS5(e.getNewValue());
+                });
+                break;
+            case 6:
                 col_s1.setCellFactory
                         (TextFieldTableCell.forTableColumn());
 
@@ -925,7 +938,10 @@ public class tableController implements Initializable
                             getTablePosition().
                             getRow()).setS6(e.getNewValue());
                 });
+
                 break;
+
+
         }
 
         col_y1.setCellFactory(TextFieldTableCell.forTableColumn());
