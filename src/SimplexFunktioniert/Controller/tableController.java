@@ -8,10 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 
@@ -38,6 +35,9 @@ public class tableController implements Initializable
 
     @FXML
     private TableView<Variable> table_info;
+
+    @FXML
+    private TableView<Variable> table_info1;
 
     @FXML
     private TableColumn<Variable, String> col_x1;
@@ -80,6 +80,7 @@ public class tableController implements Initializable
 
     @FXML
     private TableColumn<Variable, String> col_s6;
+
 
 
     @FXML
@@ -1025,6 +1026,7 @@ public class tableController implements Initializable
 
         }
         table_info.setItems(data_table);
+        table_info1.setItems(data_table);
 
     }
 
@@ -1056,6 +1058,8 @@ public class tableController implements Initializable
         }
         return inputValid;
     }
+
+
 
  
 }

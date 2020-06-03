@@ -18,6 +18,7 @@ public class EigenerSimplexTester {
 
         System.out.println("Dies ist die Ausgangsmatrix");
         System.out.println("-------------------------------------");
+        System.out.println("Test");
         e.fillTable(test);
         e.print();
         System.out.println("-------------------------------------");

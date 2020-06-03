@@ -1,9 +1,21 @@
 package SimplexFunktioniert.Core;
 
+import java.awt.*;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class EigenerSimplex {
     private final int column, row; // row and column
     private int pivotColumn;
     private float[][] table; // simplex tableau
+
+
+
+    private int arrayCounter = 1;
+    private float[][] zwischenschritte1;
+    private float[][] zwischenschritte2;
+    private float[][] zwischenschritte3;
+    private float[][] zwischenschritte4;
     // private boolean solutionIsUnbounded = false;
 
 
@@ -122,6 +134,81 @@ public class EigenerSimplex {
         }
         System.arraycopy(newRowForPivotRow,0,table[pivotRow],0, column);
 
+
+
+
+        ArrayList<float[][]> zwischenSchritte = new ArrayList<>();
+        //zwischenSchritte.add(table);
+       // System.out.println("Ausabe 1: "+zwischenSchritte.get(0));
+       // System.out.println("Ausgabe 2: "+zwischenSchritte.get(1));
+
+
+
+
+
+/**
+        switch (arrayCounter){
+            case 1:
+                zwischenschritte1 = table;
+                zwischenSchritte.add(zwischenschritte1);
+                zwischenschritte2 = table;
+                zwischenSchritte.add(zwischenschritte2);
+                break;
+            case 9:
+                zwischenschritte2 = table;
+                zwischenSchritte.add(zwischenschritte2);
+                break;
+            case 10:
+                zwischenschritte3 = table;
+                zwischenSchritte.add(zwischenschritte3);
+                break;
+            case 11:
+                zwischenschritte4 = table;
+                zwischenSchritte.add(zwischenschritte4);
+                break;
+        }
+**/
+
+/**
+        if (arrayCounter ==1){
+            zwischenschritte1 = zwischenSchritte.get(0);
+            for (int row = 0; row < zwischenschritte1.length;row++)
+                for(int col = 0; col < zwischenschritte1[row].length; col++){
+                    System.out.println(zwischenschritte1[row][col]);
+                }
+        }
+ **/
+/**
+        if (arrayCounter ==1){
+            zwischenschritte4 = zwischenSchritte.get(0);
+            System.out.println("Ausabe 1: "+zwischenschritte4[1][2]);
+        }
+
+        if (arrayCounter == 2){
+            zwischenschritte4 = zwischenSchritte.get(1);
+            System.out.println("Ausgabe 2: "+zwischenschritte4[1][2]);
+        }
+
+**/
+        if (arrayCounter ==1){
+            System.out.println("arT1 : "+arrayCounter);
+            zwischenschritte1 = table;
+            zwischenSchritte.add(zwischenschritte1);
+           // System.out.println("test1: "+zwischenschritte1);
+            System.out.println(zwischenschritte1[1][2]);
+        }
+
+        if (arrayCounter == 2){
+            System.out.println("arT2 : "+arrayCounter);
+            zwischenschritte2 = table;
+            zwischenSchritte.add(zwischenschritte2);
+            //System.out.println("test1: "+zwischenschritte2);
+            System.out.println(zwischenschritte2[1][2]);
+        }
+
+
+        arrayCounter++;
+        System.out.println("Counter"+arrayCounter);
     }
 
 
@@ -147,7 +234,8 @@ public class EigenerSimplex {
         System.out.println("Das Pivotelement ist:" +table[zeile][spalte]);
         //Erstellung der neuen Tabelle
         formNewTableau(zeile,spalte);
-        print();
+       // print();
+
 
        // System.out.println(Error.STRING_NOT_OPTIMAL);
         return Error.STRING_NOT_OPTIMAL;

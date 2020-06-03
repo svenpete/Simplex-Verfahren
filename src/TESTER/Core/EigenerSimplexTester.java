@@ -19,6 +19,7 @@ public class EigenerSimplexTester {
         System.out.println("-------------------------------------");
         e.fillTable(standardized);
         e.print();
+        System.out.println("Test");
         System.out.println("-------------------------------------");
         while(!quit) {
             i++;

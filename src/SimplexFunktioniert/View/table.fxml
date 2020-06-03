@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<SplitPane dividerPositions="0.5" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SimplexFunktioniert.Controller.tableController">
+<SplitPane dividerPositions="0.5" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SimplexFunktioniert.Controller.tableController">
    <items>
       <SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="500.0" prefWidth="525.0">
         <items>
@@ -130,16 +121,22 @@
                         <VBox minHeight="1000.0" minWidth="525.0" prefHeight="200.0" prefWidth="100.0">
                            <children>
                               <Label text="1. Schritt" />
-                              <TableView minHeight="100.0" prefHeight="229.0" prefWidth="525.0">
-                                <columns>
-                                   <TableColumn prefWidth="75.0" text="x1" />
-                                   <TableColumn prefWidth="75.0" text="x2" />
-                                   <TableColumn prefWidth="75.0" text="x3" />
-                                   <TableColumn prefWidth="75.0" text="x4" />
-                                   <TableColumn prefWidth="75.0" text="x5" />
-                                   <TableColumn prefWidth="75.0" text="x6" />
-                                   <TableColumn prefWidth="75.0" text="edit" />
-                                </columns>
+                              <TableView fx:id="table_info1" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <columns>
+                                    <TableColumn fx:id="col_x11" prefWidth="75.0" text="x1" />
+                                    <TableColumn fx:id="col_x21" prefWidth="75.0" text="x2" />
+                                    <TableColumn fx:id="col_x31" prefWidth="75.0" text="x3" />
+                                    <TableColumn fx:id="col_x41" prefWidth="75.0" text="x4" />
+                                    <TableColumn fx:id="col_x51" prefWidth="75.0" text="x5" />
+                                    <TableColumn fx:id="col_x61" prefWidth="75.0" text="x6" />
+                                    <TableColumn fx:id="col_s11" prefWidth="75.0" text="s1" />
+                                    <TableColumn fx:id="col_s21" prefWidth="75.0" text="s2" />
+                                    <TableColumn fx:id="col_s31" prefWidth="75.0" text="s3" />
+                                    <TableColumn fx:id="col_s41" prefWidth="75.0" text="s4" />
+                                    <TableColumn fx:id="col_s51" prefWidth="75.0" text="s5" />
+                                    <TableColumn fx:id="col_s61" prefWidth="75.0" text="s6" />
+                                    <TableColumn fx:id="col_y11" prefWidth="75.0" text="y1" />
+                                 </columns>
                               </TableView>
                               <Label text="2. Schritt" />
                               <TableView minHeight="100.0" prefHeight="200.0" prefWidth="200.0">
@@ -172,6 +169,7 @@
                                    <TableColumn prefWidth="75.0" text="edit" />
                                 </columns>
                               </TableView>
+                              <TextArea fx:id="output_1" prefHeight="200.0" prefWidth="200.0" />
                            </children></VBox>
                      </children>
                   </AnchorPane>
