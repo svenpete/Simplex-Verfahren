@@ -5,135 +5,138 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<SplitPane dividerPositions="0.5" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SimplexFunktioniert.Controller.tableController">
-   <items>
-      <SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="500.0" prefWidth="525.0">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="160.0">
-               <children>
-                  <VBox layoutX="89.0" layoutY="-56.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<BorderPane minHeight="400.0" minWidth="700.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SimplexFunktioniert.Controller.tableController" style="-fx-font-family: ro">
+   <center>
+      <SplitPane dividerPositions="0.5" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <items>
+            <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                      <children>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
+                        <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Label text="Anzahl der Variabeln festlegen">
-                                 <HBox.margin>
-                                    <Insets left="10.0" top="15.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <ComboBox fx:id="variables" prefHeight="27.0" prefWidth="268.0" promptText="Wählen Sie die Anzahl der Variablenaus:">
-                                 <HBox.margin>
-                                    <Insets left="10.0" top="10.0" />
-                                 </HBox.margin>
-                              </ComboBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Anzahl der Variabeln festlegen">
+                                       <HBox.margin>
+                                          <Insets left="10.0" top="15.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="variables" prefHeight="27.0" prefWidth="268.0" promptText="Wählen Sie die Anzahl der Variablenaus:">
+                                       <HBox.margin>
+                                          <Insets left="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </ComboBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Anzahl der Bedingungen festlegen">
+                                       <HBox.margin>
+                                          <Insets left="10.0" top="15.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="constraints" prefHeight="27.0" prefWidth="228.0" promptText="Wählen Sie die Bedingungen aus: ">
+                                       <HBox.margin>
+                                          <Insets left="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </ComboBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#createTable" text="Erstelle Tabelle" />
+                                    <Button fx:id="compute" mnemonicParsing="false" onAction="#compute" text="Berechne">
+                                       <HBox.margin>
+                                          <Insets left="50.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#exit" text="Schließen">
+                                       <HBox.margin>
+                                          <Insets left="50.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
                            </children>
-                        </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
-                           <children>
-                              <Label text="Anzahl der Bedingungen festlegen">
-                                 <HBox.margin>
-                                    <Insets left="10.0" top="15.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <ComboBox fx:id="constraints" prefHeight="27.0" prefWidth="228.0" promptText="Wählen Sie die Bedingungen aus: ">
-                                 <HBox.margin>
-                                    <Insets left="10.0" top="10.0" />
-                                 </HBox.margin>
-                              </ComboBox>
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
-                           <children>
-                              <Button mnemonicParsing="false" onAction="#createTable" text="Erstelle Tabelle" />
-                              <Button fx:id="compute" mnemonicParsing="false" onAction="#compute" text="Berechne">
-                                 <HBox.margin>
-                                    <Insets left="50.0" />
-                                 </HBox.margin>
-                              </Button>
-                              <Button mnemonicParsing="false" onAction="#exit" text="Schließen">
-                                 <HBox.margin>
-                                    <Insets left="50.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                        </HBox>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <TableView fx:id="table_info" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <columns>
+                              <TableColumn fx:id="col_x1" prefWidth="75.0" text="x1" />
+                              <TableColumn fx:id="col_x2" prefWidth="75.0" text="x2" />
+                              <TableColumn fx:id="col_x3" prefWidth="75.0" text="x3" />
+                              <TableColumn fx:id="col_x4" prefWidth="75.0" text="x4" />
+                              <TableColumn fx:id="col_x5" prefWidth="75.0" text="x5" />
+                              <TableColumn fx:id="col_x6" prefWidth="75.0" text="x6" />
+                              <TableColumn fx:id="col_update" prefWidth="75.0" text="edit" />
+                              <TableColumn fx:id="col_s1" prefWidth="75.0" text="s1" />
+                              <TableColumn fx:id="col_s2" prefWidth="75.0" text="s2" />
+                              <TableColumn fx:id="col_s3" prefWidth="75.0" text="s3" />
+                              <TableColumn fx:id="col_s4" prefWidth="75.0" text="s4" />
+                              <TableColumn fx:id="col_s5" prefWidth="75.0" text="s5" />
+                              <TableColumn fx:id="col_s6" prefWidth="75.0" text="s6" />
+                              <TableColumn fx:id="col_y1" prefWidth="75.0" text="y1" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+            <AnchorPane>
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Ergebnisse" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <font>
+                        <Font name="Roboto Light" size="16.0" />
+                     </font>
+                  </Label>
+                  <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+                     <children>
+                        <Label text="1. Schritt">
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding></Label>
+                        <TextArea fx:id="output_1" editable="false" prefWidth="200.0" style="-fx-min-width: 100%" />
+                        <Label text="2. Schritt">
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding></Label>
+                        <TextArea fx:id="output_2" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                        <Label text="3. Schritt">
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding></Label>
+                        <TextArea fx:id="output_3" editable="false" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </TextArea>
+                        <Label text="4. Schritt">
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding></Label>
+                        <TextArea fx:id="output_4" editable="false" prefHeight="200.0" prefWidth="200.0" />
                      </children>
                   </VBox>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-               <children>
-                  <TableView fx:id="table_info" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <columns>
-                        <TableColumn fx:id="col_x1" prefWidth="75.0" text="x1" />
-                        <TableColumn fx:id="col_x2" prefWidth="75.0" text="x2" />
-                        <TableColumn fx:id="col_x3" prefWidth="75.0" text="x3" />
-                        <TableColumn fx:id="col_x4" prefWidth="75.0" text="x4" />
-                        <TableColumn fx:id="col_x5" prefWidth="75.0" text="x5" />
-                        <TableColumn fx:id="col_x6" prefWidth="75.0" text="x6" />
-                        <TableColumn fx:id="col_update" prefWidth="75.0" text="edit" />
-                        <TableColumn fx:id="col_s1" prefWidth="75.0" text="s1" />
-                        <TableColumn fx:id="col_s2" prefWidth="75.0" text="s2" />
-                        <TableColumn fx:id="col_s3" prefWidth="75.0" text="s3" />
-                        <TableColumn fx:id="col_s4" prefWidth="75.0" text="s4" />
-                        <TableColumn fx:id="col_s5" prefWidth="75.0" text="s5" />
-                        <TableColumn fx:id="col_s6" prefWidth="75.0" text="s6" />
-                        <TableColumn fx:id="col_y1" prefWidth="75.0" text="y1" />
-                     </columns>
-                  </TableView>
-               </children>
-            </AnchorPane>
-        </items>
+         </items>
       </SplitPane>
-      <VBox prefHeight="496.0" prefWidth="369.0">
-         <children>
-            <Label alignment="CENTER" prefHeight="25.0" prefWidth="525.0" text="Ergebnisse" textAlignment="CENTER">
-               <font>
-                  <Font size="16.0" />
-               </font>
-               <VBox.margin>
-                  <Insets top="15.0" />
-               </VBox.margin>
-            </Label>
-            <HBox prefHeight="82.0" prefWidth="285.0">
-               <children>
-                  <Label prefHeight="35.0" prefWidth="142.0" text="Pivot Element:">
-                     <HBox.margin>
-                        <Insets bottom="10.0" left="10.0" top="10.0" />
-                     </HBox.margin>
-                  </Label>
-                  <TextField prefHeight="13.0" prefWidth="146.0">
-                     <HBox.margin>
-                        <Insets bottom="10.0" right="10.0" top="10.0" />
-                     </HBox.margin>
-                  </TextField>
-               </children>
-            </HBox>
-            <ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="472.0" prefWidth="369.0">
-              <content>
-                <AnchorPane minHeight="2000.0" minWidth="525.0" prefHeight="470.0" prefWidth="500.0">
-                     <children>
-                        <VBox minHeight="1000.0" minWidth="525.0" prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <Label text="1. Schritt" />
-                              <TextArea fx:id="output_1" editable="false" prefHeight="200.0" prefWidth="200.0" />
-                              <Label text="2. Schritt" />
-                              <TextArea fx:id="output_2" editable="false" prefHeight="200.0" prefWidth="200.0" />
-                              <Label text="3. Schritt" />
-                              <TextArea fx:id="output_3" editable="false" prefHeight="200.0" prefWidth="200.0" />
-                              <Label text="4. Schritt" />
-                              <TextArea fx:id="output_4" editable="false" prefHeight="200.0" prefWidth="200.0" />
-
-                           </children></VBox>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </ScrollPane>
-         </children></VBox>
-   </items>
-</SplitPane>
+   </center>
+   <top>
+      <Label text="Simplex Verfahren" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+   </top>
+</BorderPane>
