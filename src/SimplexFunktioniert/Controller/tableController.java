@@ -1,6 +1,6 @@
 package SimplexFunktioniert.Controller;
 
-import SimplexFunktioniert.Core.EigenerSimplex;
+import SimplexFunktioniert.Core.steps;
 import SimplexFunktioniert.Core.EigenerSimplexTester;
 import SimplexFunktioniert.Model.Variable;
 import SimplexFunktioniert.View.AlertBox;
@@ -131,18 +131,18 @@ public class tableController implements Initializable
         {
             float[][] table = EigenerSimplexTester.berechne(constraints.getValue(),(variables.getValue() + variables.getValue()),values );
 
-            System.out.println(table[2][0]);
 
-           int counter = EigenerSimplex.getArrayCounter();
-            System.out.println("Static Test: "+counter);
-            for (int i = 1; i<= counter; i++){
+
+           // System.out.println(table[2][0]);
+
+            for (int i = 1; i<= 2; i++){
                 String value ="";
 
                 switch (i){
                     case 1:
-                        System.out.println("Test case 1");
+                       // System.out.println("Test case 1");
                         float[][] irgendwas1 = table;
-                        System.out.println("ZT1: "+irgendwas1[2][0]);
+                        //System.out.println("ZT1: "+irgendwas1[2][0]);
                         for (int k = 0; k < irgendwas1.length; k++) {
                             for (int j = 0; j < irgendwas1[0].length; j++) {
                                 value = value+"  "+ String.format("%.2f", irgendwas1[k][j]);
@@ -153,9 +153,9 @@ public class tableController implements Initializable
                         fillData(value,i);
                         break;
                     case 2:
-                        System.out.println("Test case 2");
-                       float[][] irgendwas2 = EigenerSimplex.getTable2();
-                        System.out.println("ZT1: "+irgendwas2[2][0]);
+                       // System.out.println("Test case 2");
+                       float[][] irgendwas2 = table;
+                      //  System.out.println("ZT1: "+irgendwas2[2][0]);
                         for (int k = 0; k < irgendwas2.length; k++) {
                             for (int j = 0; j < irgendwas2[0].length; j++) {
                                 value = value+"  "+ String.format("%.2f", irgendwas2[k][j]);

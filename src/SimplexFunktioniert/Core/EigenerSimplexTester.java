@@ -11,12 +11,11 @@ public class EigenerSimplexTester {
 
 
 
-        System.out.println("Dies ist die Ausgangsmatrix");
-        System.out.println("-------------------------------------");
-        //System.out.println("Test");
+       // System.out.println("Dies ist die Ausgangsmatrix");
+        //System.out.println("-------------------------------------");
         e.fillTable(test);
-        e.print();
-        System.out.println("-------------------------------------");
+        //e.print();
+        //System.out.println("-------------------------------------");
         float[][] test1 = null;
         while(!quit) {
             i++;
@@ -25,7 +24,7 @@ public class EigenerSimplexTester {
            if(i==1) {
                test1 = e.getTable1();
            }
-            System.out.println(test1[2][0]);
+            steps.getStep(zeile,spalte,test);
             System.out.println("-------------------------------------");
 
            if (error == Error.STRING_IS_OPTIMAL) {

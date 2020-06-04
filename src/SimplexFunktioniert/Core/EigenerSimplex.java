@@ -14,7 +14,7 @@ public class EigenerSimplex {
 
 
     private static int arrayCounter = 1;
-    private static float[][] zwischenschritte1;
+    private  float[][] zwischenschritte1;
     private static float[][] zwischenschritte2;
     private static float[][] zwischenschritte3;
     private static float[][] zwischenschritte4;
@@ -135,16 +135,17 @@ public class EigenerSimplex {
         }
         System.arraycopy(newRowForPivotRow,0,table[pivotRow],0, column);
 
+      //  System.out.println(arrayCounter);
 
         if (arrayCounter ==1){
-            System.out.println("arT1 : "+arrayCounter);
-            zwischenschritte1 = table.clone();
-           System.out.println("ZT1: "+zwischenschritte1[2][0]);
-        }
+            //System.out.println("arT1 : "+arrayCounter);
+            zwischenschritte1 = table;
+           //System.out.println("ZT1: "+zwischenschritte1[2][0]);
+        }/*
 
         if (arrayCounter == 2){
             System.out.println("arT2: "+arrayCounter);
-            zwischenschritte2 = table.clone();
+            zwischenschritte2 = table;
             System.out.println("ZT2: "+zwischenschritte2[2][0]);
 
         }
@@ -158,10 +159,10 @@ public class EigenerSimplex {
             zwischenschritte4 = table;
             System.out.println(zwischenschritte4[1][2]);
         }
-
+*/
 
         arrayCounter++;
-        System.out.println("Counter"+arrayCounter);
+      //  System.out.println("Counter"+arrayCounter);
 
 
     }
@@ -222,7 +223,7 @@ public class EigenerSimplex {
         return isOptimal;
     }
 
-    public static float [][] getTable1() {
+    public float [][] getTable1() {
         return zwischenschritte1;
     }
     public static float[][] getTable2() {
