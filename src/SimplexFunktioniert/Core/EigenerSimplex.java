@@ -135,34 +135,6 @@ public class EigenerSimplex {
         }
         System.arraycopy(newRowForPivotRow,0,table[pivotRow],0, column);
 
-      //  System.out.println(arrayCounter);
-
-        if (arrayCounter ==1){
-            //System.out.println("arT1 : "+arrayCounter);
-            zwischenschritte1 = table;
-           //System.out.println("ZT1: "+zwischenschritte1[2][0]);
-        }
-
-        if (arrayCounter == 2){
-           // System.out.println("arT2: "+arrayCounter);
-            zwischenschritte2 = table;
-           // System.out.println("ZT2: "+zwischenschritte2[2][0]);
-
-        }
-        if (arrayCounter == 3){
-           // System.out.println("arT2 : "+arrayCounter);
-            zwischenschritte3 = table;
-          //  System.out.println(zwischenschritte3[1][2]);
-        }
-        if (arrayCounter == 4){
-          //  System.out.println("arT2 : "+arrayCounter);
-            zwischenschritte4 = table;
-         //   System.out.println(zwischenschritte4[1][2]);
-        }
-
-        arrayCounter++;
-      //  System.out.println("Counter"+arrayCounter);
-
 
     }
 

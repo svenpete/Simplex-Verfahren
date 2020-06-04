@@ -1,5 +1,6 @@
 package SimplexFunktioniert.Controller;
 
+import SimplexFunktioniert.Core.EigenerSimplex;
 import SimplexFunktioniert.Core.steps;
 import SimplexFunktioniert.Core.EigenerSimplexTester;
 import SimplexFunktioniert.Model.Variable;
@@ -14,7 +15,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class tableController implements Initializable
@@ -125,55 +128,39 @@ public class tableController implements Initializable
     @FXML
     void compute(ActionEvent event){
         float[][] values = getTableVariables();
+        ArrayList<float[][]> arrayList = EigenerSimplexTester.berechne(constraints.getValue(),(variables.getValue() + variables.getValue()),values);
+        float[][] table = arrayList.get(0);
+        float[][] table1 = arrayList.get(1);
 
 
         if (checkInput(values))
         {
-            float[][] table = EigenerSimplexTester.berechne(constraints.getValue(),(variables.getValue() + variables.getValue()),values );
-
-
-
-
-
             for (int i = 1; i<= 2; i++){
                 String value ="";
+                String value1 ="";
 
-                switch (i){
-                    case 1:
-                        System.out.println("Test case 1");
-                        float[][] irgendwas1 = table;
-                        //System.out.println("ZT1: "+irgendwas1[2][0]);
-                        for (int k = 0; k < irgendwas1.length; k++) {
-                            for (int j = 0; j < irgendwas1[0].length; j++) {
-                                value = value+"  "+ String.format("%.2f", irgendwas1[k][j]);
 
-                            }
-                            value = value+"\n";
-                        }
-                        fillData(value,i);
-                        break;
-                    case 2:
-                       // System.out.println("Test case 2");
-                       float[][] irgendwas2 = table;
-                      //  System.out.println("ZT1: "+irgendwas2[2][0]);
-                        for (int k = 0; k < irgendwas2.length; k++) {
-                            for (int j = 0; j < irgendwas2[0].length; j++) {
-                                value = value+"  "+ String.format("%.2f", irgendwas2[k][j]);
 
-                            }
-                            value = value+"\n";
-                        }
-                        fillData(value,i);
 
-                        break;
+                for (int k = 0; k < Objects.requireNonNull(table).length; k++) {
+                    for (int j = 0; j < table[k].length; j++) {
+                        value = value+"  "+ String.format("%.2f", table[k][j]);
+
+                    }
+                    value = value+"\n";
                 }
+                fillData(value,1);
 
+                for (int x = 0; x < Objects.requireNonNull(table1).length; x++) {
+                    for (int y = 0; y < table1[x].length; y++) {
+                        value1 = value1+"  "+ String.format("%.2f", table1[x][y]);
+
+                    }
+                    value1 = value1+"\n";
+                }
+                fillData(value1,2);
+            }
         }
-
-
-        }
-
-
     }
 
 

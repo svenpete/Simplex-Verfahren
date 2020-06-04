@@ -1,9 +1,11 @@
 package SimplexFunktioniert.Core;
 
+import java.util.ArrayList;
+
 public class EigenerSimplexTester {
 
 
-    public static float[][] berechne(int zeile, int spalte, float[][] test)
+    public static ArrayList<float[][]> berechne(int zeile, int spalte, float[][] test)
     {
         boolean quit = false;
         int i=0;
@@ -16,35 +18,33 @@ public class EigenerSimplexTester {
         e.fillTable(test);
         //e.print();
         //System.out.println("-------------------------------------");
+        ArrayList<float[][]> liste = new ArrayList<float[][]>();
         while(!quit) {
 
-            float[][] trans;
+
+
+
 
            Error error = e.calcSimplex();
-            trans = e.getTable1();
+           if(i==0)
+           {
+               float[][] trans = e.getTable1();
+               liste.add(trans);
+           }
+
 
             System.out.println("-------------------------------------");
-            System.out.println("Hier kommt der getTableTest");
-
-            for (int i1=0;i1<trans.length;i1++)
-            {
-                for (int i2=0;i2<trans[0].length;i2++)
-                {
-                    String value = String.format("%.2f", trans[i1][i2]);
-                    System.out.print(value + "\t");
-                }
-                System.out.println();
-            }
-
-
-
             if (error == Error.STRING_IS_OPTIMAL) {
                e.print();
                quit = true;
            }
-           return trans;
+            i++;
        }
 
-        return null;
+        float[][] trans1 = e.getTable2();
+        liste.add(trans1);
+
+
+        return liste;
     }
 }
