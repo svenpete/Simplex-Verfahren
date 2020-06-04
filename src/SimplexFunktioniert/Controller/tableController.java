@@ -133,14 +133,14 @@ public class tableController implements Initializable
 
 
 
-           // System.out.println(table[2][0]);
+
 
             for (int i = 1; i<= 2; i++){
                 String value ="";
 
                 switch (i){
                     case 1:
-                       // System.out.println("Test case 1");
+                        System.out.println("Test case 1");
                         float[][] irgendwas1 = table;
                         //System.out.println("ZT1: "+irgendwas1[2][0]);
                         for (int k = 0; k < irgendwas1.length; k++) {

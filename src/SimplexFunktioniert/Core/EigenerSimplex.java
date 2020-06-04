@@ -14,7 +14,7 @@ public class EigenerSimplex {
 
 
     private static int arrayCounter = 1;
-    private  float[][] zwischenschritte1;
+    private float[][] zwischenschritte1;
     private static float[][] zwischenschritte2;
     private static float[][] zwischenschritte3;
     private static float[][] zwischenschritte4;
@@ -141,25 +141,24 @@ public class EigenerSimplex {
             //System.out.println("arT1 : "+arrayCounter);
             zwischenschritte1 = table;
            //System.out.println("ZT1: "+zwischenschritte1[2][0]);
-        }/*
+        }
 
         if (arrayCounter == 2){
-            System.out.println("arT2: "+arrayCounter);
+           // System.out.println("arT2: "+arrayCounter);
             zwischenschritte2 = table;
-            System.out.println("ZT2: "+zwischenschritte2[2][0]);
+           // System.out.println("ZT2: "+zwischenschritte2[2][0]);
 
         }
         if (arrayCounter == 3){
-            System.out.println("arT2 : "+arrayCounter);
+           // System.out.println("arT2 : "+arrayCounter);
             zwischenschritte3 = table;
-            System.out.println(zwischenschritte3[1][2]);
+          //  System.out.println(zwischenschritte3[1][2]);
         }
         if (arrayCounter == 4){
-            System.out.println("arT2 : "+arrayCounter);
+          //  System.out.println("arT2 : "+arrayCounter);
             zwischenschritte4 = table;
-            System.out.println(zwischenschritte4[1][2]);
+         //   System.out.println(zwischenschritte4[1][2]);
         }
-*/
 
         arrayCounter++;
       //  System.out.println("Counter"+arrayCounter);
@@ -224,10 +223,11 @@ public class EigenerSimplex {
     }
 
     public float [][] getTable1() {
-        return zwischenschritte1;
+        return this.zwischenschritte1;
+
     }
-    public static float[][] getTable2() {
-        return zwischenschritte2;
+    public  float[][] getTable2() {
+        return this.zwischenschritte2;
     }
     public float[][] getTable3() {
         return zwischenschritte3;

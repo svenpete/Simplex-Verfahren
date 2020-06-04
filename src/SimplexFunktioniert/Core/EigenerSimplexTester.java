@@ -16,23 +16,35 @@ public class EigenerSimplexTester {
         e.fillTable(test);
         //e.print();
         //System.out.println("-------------------------------------");
-        float[][] test1 = null;
         while(!quit) {
-            i++;
+
+            float[][] trans;
 
            Error error = e.calcSimplex();
-           if(i==1) {
-               test1 = e.getTable1();
-           }
-            steps.getStep(zeile,spalte,test);
-            System.out.println("-------------------------------------");
+            trans = e.getTable1();
 
-           if (error == Error.STRING_IS_OPTIMAL) {
+            System.out.println("-------------------------------------");
+            System.out.println("Hier kommt der getTableTest");
+
+            for (int i1=0;i1<trans.length;i1++)
+            {
+                for (int i2=0;i2<trans[0].length;i2++)
+                {
+                    String value = String.format("%.2f", trans[i1][i2]);
+                    System.out.print(value + "\t");
+                }
+                System.out.println();
+            }
+
+
+
+            if (error == Error.STRING_IS_OPTIMAL) {
                e.print();
                quit = true;
            }
+           return trans;
        }
-        return test1;
 
+        return null;
     }
 }
