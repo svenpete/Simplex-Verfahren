@@ -101,30 +101,11 @@
                   </Label>
                   <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
                      <children>
-                        <Label text="1. Schritt">
+                        <Label text="Endergebnis">
                            <padding>
                               <Insets left="5.0" />
                            </padding></Label>
                         <TextArea fx:id="output_1" editable="false" prefWidth="200.0" style="-fx-min-width: 100%" />
-                        <Label text="2. Schritt">
-                           <padding>
-                              <Insets left="5.0" />
-                           </padding></Label>
-                        <TextArea fx:id="output_2" editable="false" prefHeight="200.0" prefWidth="200.0" />
-                        <Label text="3. Schritt">
-                           <padding>
-                              <Insets left="5.0" />
-                           </padding></Label>
-                        <TextArea fx:id="output_3" editable="false" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </TextArea>
-                        <Label text="4. Schritt">
-                           <padding>
-                              <Insets left="5.0" />
-                           </padding></Label>
-                        <TextArea fx:id="output_4" editable="false" prefHeight="200.0" prefWidth="200.0" />
                      </children>
                   </VBox>
                </children>

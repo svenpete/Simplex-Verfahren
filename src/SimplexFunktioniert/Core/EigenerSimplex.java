@@ -136,6 +136,30 @@ public class EigenerSimplex {
         System.arraycopy(newRowForPivotRow,0,table[pivotRow],0, column);
 
 
+
+        if (arrayCounter ==1){
+
+            zwischenschritte1 = table;
+
+        }
+
+        if (arrayCounter == 2){
+
+            zwischenschritte2 = table;
+
+
+        }
+        if (arrayCounter == 3){
+
+            zwischenschritte3 = table;
+
+        }
+        if (arrayCounter == 4){
+
+            zwischenschritte4 = table;
+
+        }
+        arrayCounter++;
     }
 
 
@@ -161,7 +185,7 @@ public class EigenerSimplex {
         System.out.println("Das Pivotelement ist:" +table[zeile][spalte]);
         //Erstellung der neuen Tabelle
         formNewTableau(zeile,spalte);
-       // print();
+
 
 
        // System.out.println(Error.STRING_NOT_OPTIMAL);

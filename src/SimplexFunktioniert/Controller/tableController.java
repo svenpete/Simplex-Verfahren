@@ -1,7 +1,5 @@
 package SimplexFunktioniert.Controller;
 
-import SimplexFunktioniert.Core.EigenerSimplex;
-import SimplexFunktioniert.Core.steps;
 import SimplexFunktioniert.Core.EigenerSimplexTester;
 import SimplexFunktioniert.Model.Variable;
 import SimplexFunktioniert.View.AlertBox;
@@ -130,7 +128,6 @@ public class tableController implements Initializable
         float[][] values = getTableVariables();
         ArrayList<float[][]> arrayList = EigenerSimplexTester.berechne(constraints.getValue(),(variables.getValue() + variables.getValue()),values);
         float[][] table = arrayList.get(0);
-        float[][] table1 = arrayList.get(1);
 
 
         if (checkInput(values))
@@ -138,9 +135,6 @@ public class tableController implements Initializable
             for (int i = 1; i<= 2; i++){
                 String value ="";
                 String value1 ="";
-
-
-
 
                 for (int k = 0; k < Objects.requireNonNull(table).length; k++) {
                     for (int j = 0; j < table[k].length; j++) {
@@ -151,14 +145,6 @@ public class tableController implements Initializable
                 }
                 fillData(value,1);
 
-                for (int x = 0; x < Objects.requireNonNull(table1).length; x++) {
-                    for (int y = 0; y < table1[x].length; y++) {
-                        value1 = value1+"  "+ String.format("%.2f", table1[x][y]);
-
-                    }
-                    value1 = value1+"\n";
-                }
-                fillData(value1,2);
             }
         }
     }
@@ -1135,15 +1121,6 @@ public class tableController implements Initializable
         switch (position){
             case 1:
                 output_1.setText(overgabe);
-                break;
-            case 2:
-                output_2.setText(overgabe);
-                break;
-            case 3:
-                output_3.setText(overgabe);
-                break;
-            case 4:
-                output_4.setText(overgabe);
                 break;
         }
 

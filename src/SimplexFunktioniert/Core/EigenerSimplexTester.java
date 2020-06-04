@@ -13,11 +13,13 @@ public class EigenerSimplexTester {
 
 
 
-       // System.out.println("Dies ist die Ausgangsmatrix");
-        //System.out.println("-------------------------------------");
+        System.out.println("Dies ist die Ausgangsmatrix");
+        System.out.println("-------------------------------------");
         e.fillTable(test);
-        //e.print();
-        //System.out.println("-------------------------------------");
+        e.print();
+
+
+        System.out.println("-------------------------------------");
         ArrayList<float[][]> liste = new ArrayList<float[][]>();
         while(!quit) {
 
@@ -26,6 +28,13 @@ public class EigenerSimplexTester {
 
 
            Error error = e.calcSimplex();
+           e.print();
+
+
+            System.out.println("-------------------------------------");
+            if (error == Error.STRING_IS_OPTIMAL) {
+                quit = true;
+            }
            if(i==0)
            {
                float[][] trans = e.getTable1();
@@ -33,12 +42,7 @@ public class EigenerSimplexTester {
            }
 
 
-            System.out.println("-------------------------------------");
-            if (error == Error.STRING_IS_OPTIMAL) {
-               e.print();
-               quit = true;
-           }
-            i++;
+
        }
 
         float[][] trans1 = e.getTable2();
