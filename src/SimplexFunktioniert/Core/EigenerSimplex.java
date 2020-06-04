@@ -186,9 +186,6 @@ public class EigenerSimplex {
         //Erstellung der neuen Tabelle
         formNewTableau(zeile,spalte);
 
-
-
-       // System.out.println(Error.STRING_NOT_OPTIMAL);
         return Error.STRING_NOT_OPTIMAL;
     }
 
